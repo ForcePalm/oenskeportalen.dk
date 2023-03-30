@@ -297,7 +297,7 @@ public function resetPassword($reset_token)
     
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('Kunne ike nulstille adgangskoden. Prøv venligst igen.'));
+            $this->Flash->error(__('Kunne ikke nulstille adgangskoden. Prøv venligst igen.'));
         }
     }
 }
