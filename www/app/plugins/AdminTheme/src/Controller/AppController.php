@@ -31,7 +31,7 @@ class AppController extends BaseController
             $user = $this->Users->find()->contain([
                 'Groups'
             ])->where([
-                'id' => $this->request->getAttribute('identity')->getIdentifier(),
+                'id' => $this->getCurrentUser(),
             ])->first();
 
             if($user->groups[0]->id != 2){

@@ -66,7 +66,8 @@ class WishesController extends AppController
             // Handle file upload
             $file = $this->request->getData('wish_img');
             if ($file->getClientFileName()) {
-                $wish->wish_img = $this->upload($file, WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlist_uuid);
+                $path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid;
+                $wish->wish_img = $this->upload($file, $path);
             }else{
                 $wish->wish_img = null;
             }
@@ -107,27 +108,8 @@ class WishesController extends AppController
             // Handle file upload
             $file = $this->request->getData('wish_img');
             if ($file->getClientFileName()) {
+                $path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid;
                 $this->upload($file, $path);
-                //Checks if folder exists, else it makes a folder
-                if (!file_exists(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid)) {
-                    mkdir(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid . DS, 0777, true);
-                }
-                $targetPath = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid . DS;
-                $targetFile = $targetPath . $file->getClientFileName();
-                if ($file->getError() === UPLOAD_ERR_OK) {
-                    if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
-                        if($wish->wish_img){
-                            unlink(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid . DS . $wish->wish_img);
-                        }
-                        
-                        $wish->wish_img = $file->getClientFileName();
-
-                    } else {
-                        $this->Flash->error(__('Kunne ikke upload billedet. Prøv venligst igen.'));
-                    }
-                } else {
-                    $this->Flash->error(__('Der skete en fejl. Prøv venligst igen.'));        
-                }
             }else{
                 $wish->wish_img = $wish->wish_img;
             }
@@ -178,7 +160,7 @@ class WishesController extends AppController
 
         if($wish->is_reserved != 1){
             $wish->is_reserved = 1;
-            $wish->reserved_by = $this->request->getAttribute('identity')->getIdentifier();
+            $wish->reserved_by = $this->getCurrentUser();
             if ($this->Wishes->save($wish)) {
                 $this->Flash->success(__('Ønsket er blevet reserveret'));
 
@@ -194,7 +176,7 @@ class WishesController extends AppController
             'uuid' => $uuid,
         ])->firstOrFail();
 
-        if($wish->reserved_by == $this->request->getAttribute('identity')->getIdentifier()){
+        if($wish->reserved_by == $this->getCurrentUser()){
             $wish->is_reserved = 0;
             $wish->reserved_by = null;
             if ($this->Wishes->save($wish)) {
