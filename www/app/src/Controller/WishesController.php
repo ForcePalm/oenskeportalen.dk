@@ -109,7 +109,10 @@ class WishesController extends AppController
             $file = $this->request->getData('wish_img');
             if ($file->getClientFileName()) {
                 $path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid;
-                $this->upload($file, $path);
+                if($wish->wish_img){
+                    unlink($path . DS . $wish->wish_img);
+                }
+                $wish->wish_img = $this->upload($file, $path);
             }else{
                 $wish->wish_img = $wish->wish_img;
             }
