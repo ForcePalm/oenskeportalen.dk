@@ -35,7 +35,7 @@ class WishesController extends AppController
         $wish = $this->Wishes->find()->contain('Wishlists')->where([
             'Wishes.uuid' => $uuid,
         ])->firstOrFail();
-
+        
         $this->set(compact('wish'));
     }
 
@@ -66,21 +66,7 @@ class WishesController extends AppController
             // Handle file upload
             $file = $this->request->getData('wish_img');
             if ($file->getClientFileName()) {
-                //Checks if folder exists, else it makes a folder
-                if (!file_exists(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlist_uuid)) {
-                    mkdir(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlist_uuid . DS, 0777, true);
-                }
-                $targetPath = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlist_uuid . DS;
-                $targetFile = $targetPath . $file->getClientFileName();
-                if ($file->getError() === UPLOAD_ERR_OK) {
-                    if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
-                        $wish->wish_img = $file->getClientFileName();
-                    } else {
-                        $this->Flash->error(__('Kunne ikke upload billedet. Prøv venligst igen.'));
-                    }
-                } else {
-                    $this->Flash->error(__('Der skete en fejl. Prøv venligst igen.'));        
-                }
+                $wish->wish_img = $this->upload($file, WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlist_uuid);
             }else{
                 $wish->wish_img = null;
             }
@@ -121,6 +107,7 @@ class WishesController extends AppController
             // Handle file upload
             $file = $this->request->getData('wish_img');
             if ($file->getClientFileName()) {
+                $this->upload($file, $path);
                 //Checks if folder exists, else it makes a folder
                 if (!file_exists(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid)) {
                     mkdir(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid . DS, 0777, true);
@@ -129,7 +116,12 @@ class WishesController extends AppController
                 $targetFile = $targetPath . $file->getClientFileName();
                 if ($file->getError() === UPLOAD_ERR_OK) {
                     if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
+                        if($wish->wish_img){
+                            unlink(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid . DS . $wish->wish_img);
+                        }
+                        
                         $wish->wish_img = $file->getClientFileName();
+
                     } else {
                         $this->Flash->error(__('Kunne ikke upload billedet. Prøv venligst igen.'));
                     }
@@ -137,7 +129,7 @@ class WishesController extends AppController
                     $this->Flash->error(__('Der skete en fejl. Prøv venligst igen.'));        
                 }
             }else{
-                $wish->wish_img = null;
+                $wish->wish_img = $wish->wish_img;
             }
 
             if ($this->Wishes->save($wish)) {
@@ -167,6 +159,10 @@ class WishesController extends AppController
         ])->first();
 
         if ($this->Wishes->delete($wish)) {
+            if($wish->wish_img){
+                unlink(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wish->wishlist->uuid . DS . $wish->wish_img);
+            }
+            
             $this->Flash->success(__('Ønsket er bevet slettet.'));
         } else {
             $this->Flash->error(__('Kunne ikke slette ønsket. Prøv venligst igen.'));
@@ -198,8 +194,6 @@ class WishesController extends AppController
             'uuid' => $uuid,
         ])->firstOrFail();
 
-        
-
         if($wish->reserved_by == $this->request->getAttribute('identity')->getIdentifier()){
             $wish->is_reserved = 0;
             $wish->reserved_by = null;
@@ -210,6 +204,5 @@ class WishesController extends AppController
             }
             $this->Flash->error(__('Kunne ike annullere reservationen. Prøv venligst igen.'));
         }
-        
     }
 }

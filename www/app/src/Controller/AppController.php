@@ -65,4 +65,32 @@ class AppController extends Controller
         return $this->request->getAttribute('identity')->getIdentifier();
     }
 
+    public function upload($file, $path){
+        //Checks if folder exists, else it makes a folder
+        if (!file_exists($path)) {
+            mkdir($path, 0777, true);
+        }
+        //Path to upload folder
+        $targetPath = $path . DS;
+        
+        //Gets the file type
+        $fileExtension = trim(substr($file->getclientMediaType(), strpos($file->getclientMediaType(), '/') + 1));
+
+        //Random string
+        $i = 20;
+        $randomString = bin2hex(random_bytes($i));
+
+        $fileName = $randomString . '.' . $fileExtension;
+
+        $targetFile = $targetPath . $fileName;
+        if ($file->getError() === UPLOAD_ERR_OK) {
+            if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
+                return $fileName;
+            } else {
+                $this->Flash->error(__('Kunne ikke upload billedet. Prøv venligst igen.'));
+            }
+        } else {
+            $this->Flash->error(__('Der skete en fejl. Prøv venligst igen.'));        
+        }
+    }
 }
