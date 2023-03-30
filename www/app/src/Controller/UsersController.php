@@ -195,9 +195,9 @@ class UsersController extends AppController
 
                     return $this->redirect(['action' => 'login']);
                 }
-                $this->Flash->error(__('Your registration failed.'));
+                $this->Flash->error(__('Registrering fejlet, prøv venligst igen.'));
             }
-            $this->Flash->error(__('Password matchede'));
+            $this->Flash->error(__('Passwords matchede ikke'));
         }
         $this->set(compact('user'));
     }
@@ -219,7 +219,7 @@ public function login()
     // display error if user submitted and authentication failed
     if ($this->request->is('post') && !$result->isValid()) {
             debug($result && $result->isValid());
-        $this->Flash->error(__('Invalid username or password'));
+        $this->Flash->error(__('Forkert brugernavn eller kode.'));
     }
 }
 

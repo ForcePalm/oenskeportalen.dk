@@ -71,8 +71,10 @@ class WishlistsController extends AppController
                 $mailer->setTransport('gmail');
 
                 if ($mailer->deliver()) {
+                    $this->Flash->success(__('Ønskeliste delt med '. $this->request->getData('share_email')));
                     return $this->redirect(['action' => 'view', $uuid]);
                 }
+                $this->Flash->error(__('Ønskelisten kunne ikke deles. Prøv venligst igen.'));
         }
     }
 
@@ -92,11 +94,11 @@ class WishlistsController extends AppController
             $wishlist->user_id = $this->request->getAttribute('identity')->getIdentifier();
             $wishlist = $this->Wishlists->patchEntity($wishlist, $this->request->getData());
             if ($this->Wishlists->save($wishlist)) {
-                $this->Flash->success(__('The wishlist has been saved.'));
+                $this->Flash->success(__('Ønskelisten er Oprettet'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The wishlist could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke oprette ønskelisten. Prøv venligst igen.'));
         }
         $this->set(compact('wishlist'));
     }
@@ -117,11 +119,11 @@ class WishlistsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $wishlist = $this->Wishlists->patchEntity($wishlist, $this->request->getData());
             if ($this->Wishlists->save($wishlist)) {
-                $this->Flash->success(__('The wishlist has been saved.'));
+                $this->Flash->success(__('Ønskelisten er gemt.'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The wishlist could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke gemme ønskelisten. Prøv venligst igen.'));
         }
         $this->set(compact('wishlist'));
     }
@@ -143,9 +145,9 @@ class WishlistsController extends AppController
         ])->first();
         
         if ($this->Wishlists->delete($wishlist)) {
-            $this->Flash->success(__('The wishlist has been deleted.'));
+            $this->Flash->success(__('Ønskelisten er slettet'));
         } else {
-            $this->Flash->error(__('The wishlist could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke slette ønskelisten. Prøv venligst igen.'));
         }
 
         return $this->redirect(['action' => 'index']);
