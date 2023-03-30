@@ -948,7 +948,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 /*toastr*/
 
 .toast {
-    margin-top: 10px !important;
+    margin-top: 7px !important;
 }
 
 
@@ -1004,10 +1004,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
   @media only screen and (max-width: 639px) {
     .dashboard-header .col:first-child{
         order: 2;
-    }
-
-    .dashboard-header .col:last-child{
-        
     }
 
     .dashboard-header .col:last-child button,
