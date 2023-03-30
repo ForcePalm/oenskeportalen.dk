@@ -114,7 +114,7 @@ class SettingsController extends AppController
                     $this->Flash->error(__('An error occurred. Please try again.'));
                 }
             }else{
-                $setting->site_logo = null;
+                $setting->site_logo = $setting->site_logo;
             }
             
             if ($this->Settings->save($setting)) {
