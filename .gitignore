@@ -71,3 +71,4 @@ www/app/tmp/cache/persistent/myapp_cake_core_translations.cake.en_US
 www/app/tmp/cache/persistent/myapp_cake_core_translations.default.en_US
 .vscode/sftp.json
 .gitignore
+.vscode/sftp.json
