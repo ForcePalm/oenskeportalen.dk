@@ -53,7 +53,6 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
 
             <div class="top-nav-links menu-closed">
                 <div>
-                    <a href="<?= $this->Url->build('/') ?>">Hjem</a>
                     <a href="<?= $this->Url->build('/AboutUs') ?>">Om os</a>
                     <?php if ($this->request->getAttribute('identity')) { ?>
                         <a href="<?= $this->Url->build(['controller' => 'Dashboard', 'action' => 'index']) ?>">Min side</a>
