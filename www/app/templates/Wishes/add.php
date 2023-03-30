@@ -37,7 +37,7 @@
             'type' => 'file'
         ]) ?>
 
-        <div id="uploadImg" class="upload-img" style="background-image: url(https://www.komplett.dk/img/p/800/1111557_2.jpg)"></div>
+        <div id="uploadImg" class="upload-img hidden"></div>
     </fieldset>
     <?= $this->Form->submit(__('Opret')); ?>
     <?= $this->Form->end() ?>

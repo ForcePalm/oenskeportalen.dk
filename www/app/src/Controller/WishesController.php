@@ -94,12 +94,10 @@ class WishesController extends AppController
     {
         $this->loadModel('Wishlists');
 
-        $wish = $this->Wishes->find()->where([
-            'uuid' => $uuid,
-        ])->first();
-
-        $wishlists = $this->Wishlists->find()->where([
-            'id' => $wish->wishlist_id,
+        $wish = $this->Wishes->find()->contain([
+            'Wishlists',
+        ])->where([
+            'Wishes.uuid' => $uuid,
         ])->first();
         
         if ($this->request->is(['patch', 'post', 'put'])) {
@@ -108,7 +106,7 @@ class WishesController extends AppController
             // Handle file upload
             $file = $this->request->getData('wish_img');
             if ($file->getClientFileName()) {
-                $path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid;
+                $path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wish->wishlist->uuid;
                 if($wish->wish_img){
                     unlink($path . DS . $wish->wish_img);
                 }
