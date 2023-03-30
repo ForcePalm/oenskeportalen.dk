@@ -150,7 +150,7 @@ class UsersController extends AppController
             $this->Authentication->logout();
             return $this->redirect(['controller' => 'Users', 'action' => 'login']);
         } else {
-            $this->Flash->error(__('Brugeren kunne ikke slettes . Prøv venligst igen.'));
+            $this->Flash->error(__('Brugeren kunne ikke slettes. Prøv venligst igen.'));
         }
 
         return $this->redirect(['controller' => 'Users', 'action' => 'login']);
@@ -195,7 +195,7 @@ class UsersController extends AppController
 
                     return $this->redirect(['action' => 'login']);
                 }
-                $this->Flash->error(__('Registrering fejlet, prøv venligst igen.'));
+                $this->Flash->error(__('Registrering fejlet. Prøv venligst igen.'));
             }
             $this->Flash->error(__('Passwords matchede ikke'));
         }
@@ -247,7 +247,7 @@ public function forgotLogin()
         $user->reset_request_token = $token;
 
         if ($this->Users->save($user)) {
-            $this->Flash->success(__('Mail sendt.'));
+            $this->Flash->success(__('Password resetmail er nu sendt, husk at tjekke din spam mappe.'));
 
             $mailer = new Mailer();
             $mailer->setDomain('www.ønskeportalen.dk');
@@ -297,7 +297,7 @@ public function resetPassword($reset_token)
     
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ike nulstille adgangskoden. Prøv venligst igen.'));
         }
     }
 }
