@@ -123,11 +123,11 @@ class UsersController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $user = $this->Users->patchEntity($user, $this->request->getData());
             if ($this->Users->save($user)) {
-                $this->Flash->success(__('Succesfuldt gemt'));
+                $this->Flash->success(__('Succesfuldt gemt bruger'));
 
                 return $this->redirect(['action' => 'edit']);
             }
-            $this->Flash->error(__('The user could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke gemme bruger. Prøv venligst igen.'));
         }
         $this->set(compact('user'));
     }
@@ -146,11 +146,11 @@ class UsersController extends AppController
             'uuid' => $uuid,
         ])->firstOrFail();
         if ($this->Users->delete($user)) {
-            $this->Flash->success(__('The user has been deleted.'));
+            $this->Flash->success(__('Bruger Slettet.'));
             $this->Authentication->logout();
             return $this->redirect(['controller' => 'Users', 'action' => 'login']);
         } else {
-            $this->Flash->error(__('The user could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Brugeren kunne ikke slettes . Prøv venligst igen.'));
         }
 
         return $this->redirect(['controller' => 'Users', 'action' => 'login']);
@@ -195,9 +195,9 @@ class UsersController extends AppController
 
                     return $this->redirect(['action' => 'login']);
                 }
-                $this->Flash->error(__('Your registration failed.'));
+                $this->Flash->error(__('Registrering fejlet, prøv venligst igen.'));
             }
-            $this->Flash->error(__('Password matchede'));
+            $this->Flash->error(__('Passwords matchede ikke'));
         }
         $this->set(compact('user'));
     }
@@ -219,7 +219,7 @@ public function login()
     // display error if user submitted and authentication failed
     if ($this->request->is('post') && !$result->isValid()) {
             debug($result && $result->isValid());
-        $this->Flash->error(__('Invalid username or password'));
+        $this->Flash->error(__('Forkert brugernavn eller kode.'));
     }
 }
 

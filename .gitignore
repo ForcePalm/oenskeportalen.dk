@@ -72,4 +72,5 @@ www/app/tmp/cache/persistent/myapp_cake_core_translations.default.en_US
 .vscode/sftp.json
 .gitignore
 .vscode/sftp.json
-www/app/webroot/img/uploads
+www/app/webroot/img/uploads/
+www/app/webroot/img/uploads/Settings/
