@@ -30,7 +30,7 @@ class SharedController extends AppController
                     'count' => $q->func()->count('*')
                 ])->group('wishlist_id');
             }])->innerJoinWith('Shared')->where([
-                'Shared.user_id' => $this->request->getAttribute('identity')->getIdentifier()
+                'Shared.user_id' => $this->getCurrentUser()
             ])->all();
 
         $this->set(compact('shared'));
@@ -53,19 +53,19 @@ class SharedController extends AppController
             'uuid' => $uuid,
         ])->firstOrFail();
 
-        if($share->user_id == $this->request->getAttribute('identity')->getIdentifier()){
+        if($share->user_id == $this->getCurrentUser()){
             return $this->redirect(['controller' => 'Wishlists','action' => 'view', $uuid]);
         }
 
         $shared = $this->Shared->find()->where([
-            'user_id' => $this->request->getAttribute('identity')->getIdentifier(),
+            'user_id' => $this->getCurrentUser()
             'wishlist_id' => $share->id,
         ])->first();
 
         if(!$shared){
 
             $shared = $this->Shared->newEmptyEntity();
-            $shared->user_id = $this->request->getAttribute('identity')->getIdentifier();
+            $shared->user_id = $this->getCurrentUser();
             $shared->wishlist_id = $share->id;
 
             $n = 20;
@@ -99,7 +99,7 @@ class SharedController extends AppController
         ])->first();
 
         $shared = $this->Shared->find()->where([
-            'user_id' => $this->request->getAttribute('identity')->getIdentifier(),
+            'user_id' => $this->getCurrentUser(),
             'wishlist_id' => $share->id,
         ])->first();
 
@@ -125,7 +125,7 @@ class SharedController extends AppController
         ])->firstOrFail();
 
         $shared = $this->Wishlists->find()->where([
-            'user_id' => $this->request->getAttribute('identity')->getIdentifier(),
+            'user_id' => $this->getCurrentUser(),
             'id' => $wish->wishlist_id,
         ])->first();
 

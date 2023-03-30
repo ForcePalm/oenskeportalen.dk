@@ -35,7 +35,7 @@ class DashboardController extends AppController
                     'count' => $q->func()->count('*')
                 ])->group('wishlist_id');
             })->where([
-            'user_id' => $this->request->getAttribute('identity')->getIdentifier(),
+            'user_id' => $this->getCurrentUser()
         ])->order([
             'Wishlists.id' => 'DESC',
         ])->limit(3)->all();
@@ -48,7 +48,7 @@ class DashboardController extends AppController
                     'count' => $q->func()->count('*')
                 ])->group('wishlist_id');
             }])->innerJoinWith('Shared')->where([
-                'Shared.user_id' => $this->request->getAttribute('identity')->getIdentifier()
+                'Shared.user_id' => $this->getCurrentUser()
             ])->order([
                 'Wishlists.id' => 'DESC',
             ])->limit(4)->all();

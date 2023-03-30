@@ -26,7 +26,7 @@ class WishlistsController extends AppController
                     'count' => $q->func()->count('*')
                 ])->group('wishlist_id');
             })->where([
-            'user_id' => $this->request->getAttribute('identity')->getIdentifier(),
+            'user_id' => $this->getCurrentUser(),
         ])->all();
 
         $this->set(compact('wishlists'));
@@ -91,7 +91,7 @@ class WishlistsController extends AppController
             $uuid = bin2hex(random_bytes($n));
     
             $wishlist->uuid    = $uuid;
-            $wishlist->user_id = $this->request->getAttribute('identity')->getIdentifier();
+            $wishlist->user_id = $this->getCurrentUser();
             $wishlist = $this->Wishlists->patchEntity($wishlist, $this->request->getData());
             if ($this->Wishlists->save($wishlist)) {
                 $this->Flash->success(__('Ønskelisten er Oprettet'));
