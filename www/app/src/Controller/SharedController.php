@@ -21,11 +21,6 @@ class SharedController extends AppController
     public function index()
     {
         $this->loadModel('Wishlists');
-        /*$shares = $this->Shared->find()->where([
-            'user_id' => $this->request->getAttribute('identity')->getIdentifier(),
-        ])->order([
-            'Shared.id' => 'DESC',
-        ])->all();*/
 
         $shared = $this->Wishlists->find()->contain([
             'Wishes'=> function ($q) {
@@ -78,62 +73,14 @@ class SharedController extends AppController
             $shared->share_token = $token;
             $shared = $this->Shared->patchEntity($shared, $this->request->getData());
             if ($this->Shared->save($shared)) {
-                $this->Flash->success(__('The shared has been saved.'));
+                $this->Flash->success(__('Du har nu fået tilføjet denne delte ønskeliste'));
 
                 return $this->redirect(['action' => 'view', $uuid]);
             }
-            $this->Flash->error(__('The shared could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke tilføje den delte ønskeliste. Prøv venligst igen.'));
         }
 
         $this->set(compact('share'));
-    }
-
-    /**
-     * Add method
-     *
-     * @return \Cake\Http\Response|null|void Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $shared = $this->Shared->newEmptyEntity();
-        if ($this->request->is('post')) {
-            $shared = $this->Shared->patchEntity($shared, $this->request->getData());
-            if ($this->Shared->save($shared)) {
-                $this->Flash->success(__('The shared has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The shared could not be saved. Please, try again.'));
-        }
-        $wishlists = $this->Shared->Wishlists->find('list', ['limit' => 200])->all();
-        $users = $this->Shared->Users->find('list', ['limit' => 200])->all();
-        $this->set(compact('shared', 'wishlists', 'users'));
-    }
-
-    /**
-     * Edit method
-     *
-     * @param string|null $id Shared id.
-     * @return \Cake\Http\Response|null|void Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $shared = $this->Shared->get($id, [
-            'contain' => [],
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $shared = $this->Shared->patchEntity($shared, $this->request->getData());
-            if ($this->Shared->save($shared)) {
-                $this->Flash->success(__('The shared has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The shared could not be saved. Please, try again.'));
-        }
-        $wishlists = $this->Shared->Wishlists->find('list', ['limit' => 200])->all();
-        $users = $this->Shared->Users->find('list', ['limit' => 200])->all();
-        $this->set(compact('shared', 'wishlists', 'users'));
     }
 
     /**
@@ -157,10 +104,10 @@ class SharedController extends AppController
         ])->first();
 
         if ($this->Shared->delete($shared)) {
-            $this->Flash->success(__('The shared has been deleted.'));
+            $this->Flash->success(__('Ønskelisten er fjerne fra delte'));
             return $this->redirect(['controller' => 'dashboard','action' => 'index']);
         } else {
-            $this->Flash->error(__('The shared could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke fjerne den delte ønskeliste. Prøv venligst igen.'));
             return $this->redirect(['controller' => 'dashboard','action' => 'index']);
         }
 
