@@ -1,0 +1,57 @@
+/*Banner*/
+
+.banner{
+    background-image: url('../img/home-background.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: top center;
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: -80px;
+    width: 100%;
+}
+
+/*Overlay*/
+
+.overlay{
+    min-height: 85vh;
+    background-color: rgba(0, 0, 0, 0.3);
+    min-width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.overlay h1{
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 4.5em;
+    margin-top: 86.6px;
+}
+
+.overlay a{
+    min-width: 10px;
+    font-size: 2em;
+    color: #111;
+    display: block;
+    border-radius: 20px;
+    background-color: #c69b4f;
+    border: 2px solid #c69b4f;
+    text-align: center;
+    padding: 8px 22px;
+    font-weight: bold;
+    transition: all 0.4s ease-in-out;
+    text-decoration: none;
+}
+
+.overlay a:hover{
+    background-color: transparent;
+    background-color: #111;
+    color: #c69b4f;
+}

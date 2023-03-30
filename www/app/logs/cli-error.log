@@ -1,0 +1,102 @@
+2023-02-03 10:32:22 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-02-03 22:09:23 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-02-03 22:09:41 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-02-03 22:09:51 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-02-03 22:10:13 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-02-03 22:24:46 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-02-03 22:25:14 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-02-03 22:26:35 warning: DebugKit not enabled. You need to either install pdo_sqlite, or define the "debug_kit" connection name.
+2023-03-23 08:00:33 error: [Cake\Database\Exception\DatabaseException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'oenskeportalen_dk_db.shared_wisists' doesn't exist in /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php on line 160
+Stack Trace:
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:118
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/ORM/Table.php:521
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:111
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:94
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php:189
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:334
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:172
+- /var/www/oenskeportalen.dk/www/app/bin/cake.php:12
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'oenskeportalen_dk_db.shared_wisists' doesn't exist in /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php on line 39
+Stack Trace:
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php:39
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Connection.php:329
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Core/Retry/CommandRetry.php:70
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Connection.php:332
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:158
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:118
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/ORM/Table.php:521
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:111
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:94
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php:189
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:334
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:172
+- /var/www/oenskeportalen.dk/www/app/bin/cake.php:12
+
+2023-03-28 08:28:19 warning: preg_match(): Unknown modifier 'p'
+Trace:
+preg_match [internal], line ??
+Cake\Command\PluginLoadCommand::modifyApplication() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 114
+Cake\Command\PluginLoadCommand::execute() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 78
+Cake\Console\BaseCommand::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php, line 189
+Cake\Console\CommandRunner::runCommand() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 334
+Cake\Console\CommandRunner::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 172
+[main] /var/www/oenskeportalen.dk/www/app/bin/cake.php, line 12
+
+2023-03-28 08:28:39 warning: preg_match(): Unknown modifier 'p'
+Trace:
+preg_match [internal], line ??
+Cake\Command\PluginLoadCommand::modifyApplication() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 114
+Cake\Command\PluginLoadCommand::execute() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 78
+Cake\Console\BaseCommand::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php, line 189
+Cake\Console\CommandRunner::runCommand() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 334
+Cake\Console\CommandRunner::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 172
+[main] /var/www/oenskeportalen.dk/www/app/bin/cake.php, line 12
+
+2023-03-28 08:29:17 warning: preg_match(): Unknown modifier 'p'
+Trace:
+preg_match [internal], line ??
+Cake\Command\PluginLoadCommand::modifyApplication() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 114
+Cake\Command\PluginLoadCommand::execute() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 78
+Cake\Console\BaseCommand::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php, line 189
+Cake\Console\CommandRunner::runCommand() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 334
+Cake\Console\CommandRunner::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 172
+[main] /var/www/oenskeportalen.dk/www/app/bin/cake.php, line 12
+
+2023-03-28 08:35:01 warning: preg_match(): Unknown modifier 'p'
+Trace:
+preg_match [internal], line ??
+Cake\Command\PluginLoadCommand::modifyApplication() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 114
+Cake\Command\PluginLoadCommand::execute() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Command/PluginLoadCommand.php, line 78
+Cake\Console\BaseCommand::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php, line 189
+Cake\Console\CommandRunner::runCommand() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 334
+Cake\Console\CommandRunner::run() /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php, line 172
+[main] /var/www/oenskeportalen.dk/www/app/bin/cake.php, line 12
+
+2023-03-28 11:08:40 error: [Cake\Database\Exception\DatabaseException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'oenskeportalen_dk_db.setings' doesn't exist in /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php on line 160
+Stack Trace:
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:118
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/ORM/Table.php:521
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:111
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:94
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php:189
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:334
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:172
+- /var/www/oenskeportalen.dk/www/app/bin/cake.php:12
+
+Caused by: [PDOException] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'oenskeportalen_dk_db.setings' doesn't exist in /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php on line 39
+Stack Trace:
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php:39
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Connection.php:329
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Core/Retry/CommandRetry.php:70
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Connection.php:332
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:158
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:118
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/ORM/Table.php:521
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:111
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/bake/src/Command/ModelCommand.php:94
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/BaseCommand.php:189
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:334
+- /var/www/oenskeportalen.dk/www/app/vendor/cakephp/cakephp/src/Console/CommandRunner.php:172
+- /var/www/oenskeportalen.dk/www/app/bin/cake.php:12
+
