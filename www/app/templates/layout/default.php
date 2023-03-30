@@ -30,8 +30,8 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="preload" as="font">
 
-    <?= $this->Html->css(['reset', 'normalize.min', 'milligram.min','bootstrap/bootstrap.min.css', 'cake', 'home', 'core',]) ?>
-    <?= $this->Html->script(['jquery/jquery-3.6.4.min','bootstrap/bootstrap.bundle.min', 'vue/vue.global']) ?>
+    <?= $this->Html->css(['reset', 'normalize.min', 'milligram.min','bootstrap/bootstrap.min', 'cake', 'home', 'core', 'toastr/toastr.min']) ?>
+    <?= $this->Html->script(['jquery/jquery-3.6.4.min','bootstrap/bootstrap.bundle.min', 'vue/vue.global', 'toastr/toastr.min']) ?>
 
     <script src="https://kit.fontawesome.com/7a26c8da44.js" crossorigin="anonymous"></script>
 

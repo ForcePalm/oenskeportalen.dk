@@ -945,6 +945,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
 }
 
+/*toastr*/
+
+.toast {
+    margin-top: 10px !important;
+}
+
 
 /*Media Queries*/
 
@@ -1034,4 +1040,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
         padding: 50px 0;
     }
   }
+
+  
   

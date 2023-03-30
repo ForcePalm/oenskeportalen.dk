@@ -59,11 +59,11 @@ class AboutUsController extends AppController
         if ($this->request->is('post')) {
             $aboutU = $this->AboutUs->patchEntity($aboutU, $this->request->getData());
             if ($this->AboutUs->save($aboutU)) {
-                $this->Flash->success(__('The about u has been saved.'));
+                $this->Flash->success(__('Om os sektion gemt'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The about u could not be saved. Please, try again.'));
+            $this->Flash->error(__('Om os sektion, kunne ikke gemmes! Prøv venligst igen.'));
         }
         $this->set(compact('aboutU'));
     }
@@ -83,11 +83,11 @@ class AboutUsController extends AppController
         if ($this->request->is(['patch', 'post', 'put'])) {
             $aboutU = $this->AboutUs->patchEntity($aboutU, $this->request->getData());
             if ($this->AboutUs->save($aboutU)) {
-                $this->Flash->success(__('The about u has been saved.'));
+                $this->Flash->success(__('Om os sektion gemt'));
 
                 return $this->redirect(['action' => 'index']);
             }
-            $this->Flash->error(__('The about u could not be saved. Please, try again.'));
+            $this->Flash->error(__('Om os sektion, kunne ikke gemmes! Prøv venligst igen.'));
         }
         $this->set(compact('aboutU'));
     }
@@ -104,9 +104,9 @@ class AboutUsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $aboutU = $this->AboutUs->get($id);
         if ($this->AboutUs->delete($aboutU)) {
-            $this->Flash->success(__('The about u has been deleted.'));
+            $this->Flash->success(__('Om os sektion slettet'));
         } else {
-            $this->Flash->error(__('The about u could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Om os sektion, kunne ikke slettes! Prøv venligst igen.'));
         }
 
         return $this->redirect(['action' => 'index']);
