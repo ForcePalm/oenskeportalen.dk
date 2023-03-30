@@ -145,6 +145,28 @@ class WishlistsController extends AppController
         ])->first();
         
         if ($this->Wishlists->delete($wishlist)) {
+            
+            //Checks if the wishlist has a folder
+            if (is_dir(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $uuid)) {
+
+                // Folder path to be flushed
+                $folder_path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $uuid;
+
+                // List of name of files inside
+                // specified folder
+                $files = glob($folder_path . '/*');
+                
+                // Delete all the files of the list
+                foreach ($files as $file) {
+                  if (is_file($file)) {
+                    // Deleting the given file
+                    unlink($file);
+                  }
+                }
+                //Deletes the folder
+                rmdir(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $uuid);
+            }
+
             $this->Flash->success(__('Ønskelisten er slettet'));
         } else {
             $this->Flash->error(__('Kunne ikke slette ønskelisten. Prøv venligst igen.'));
