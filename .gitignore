@@ -14,7 +14,8 @@
 .Spotlight-V100
 .Trashes
 # Icon must end with two \r
-Icon
+Icon
+
 ehthumbs.db
 Thumbs.db
 .directory
@@ -50,3 +51,23 @@ nbproject/*
 # yarn
 yarn-debug.log
 yarn-error.log
+.github/dependabot.yml
+.github/ISSUE_TEMPLATE.md
+.github/PULL_REQUEST_TEMPLATE.md
+.github/workflows/ci.yml
+.github/workflows/stale.yml
+www/app/logs/error.log
+www/app/tmp/cache/models/myapp_cake_model_debug_kit_panels
+www/app/tmp/cache/models/myapp_cake_model_debug_kit_requests
+www/app/tmp/cache/models/myapp_cake_model_default_about_us
+www/app/tmp/cache/models/myapp_cake_model_default_faq
+www/app/tmp/cache/models/myapp_cake_model_default_groups
+www/app/tmp/cache/models/myapp_cake_model_default_groups_users
+www/app/tmp/cache/models/myapp_cake_model_default_shared
+www/app/tmp/cache/models/myapp_cake_model_default_users
+www/app/tmp/cache/models/myapp_cake_model_default_wishes
+www/app/tmp/cache/models/myapp_cake_model_default_wishlists
+www/app/tmp/cache/persistent/myapp_cake_core_translations.cake.en_US
+www/app/tmp/cache/persistent/myapp_cake_core_translations.default.en_US
+.vscode/sftp.json
+.gitignore
