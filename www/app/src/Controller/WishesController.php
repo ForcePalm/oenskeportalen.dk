@@ -65,7 +65,7 @@ class WishesController extends AppController
 
             // Handle file upload
             $file = $this->request->getData('wish_img');
-            if ($file) {
+            if ($file->getClientFileName()) {
                 //Checks if folder exists, else it makes a folder
                 if (!file_exists(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlist_uuid)) {
                     mkdir(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlist_uuid . DS, 0777, true);
@@ -76,19 +76,21 @@ class WishesController extends AppController
                     if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
                         $wish->wish_img = $file->getClientFileName();
                     } else {
-                        $this->Flash->error(__('The file could not be uploaded. Please try again.'));
+                        $this->Flash->error(__('Kunne ikke upload billedet. Prøv venligst igen.'));
                     }
                 } else {
-                    $this->Flash->error(__('An error occurred. Please try again.'));
+                    $this->Flash->error(__('Der skete en fejl. Prøv venligst igen.'));        
                 }
+            }else{
+                $wish->wish_img = null;
             }
 
             if ($this->Wishes->save($wish)) {
-                $this->Flash->success(__('The wish has been saved.'));
+                $this->Flash->success(__('Ønsket er oprettet.'));
 
                 return $this->redirect(['controller' => 'Wishlists', 'action' => 'view', $wishlist_uuid]);
             }
-            $this->Flash->error(__('The wish could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke oprette ønsket. Prøv venligst igen.'));
         }
 
         $this->set(compact('wish'));
@@ -118,7 +120,7 @@ class WishesController extends AppController
 
             // Handle file upload
             $file = $this->request->getData('wish_img');
-            if ($file) {
+            if ($file->getClientFileName()) {
                 //Checks if folder exists, else it makes a folder
                 if (!file_exists(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid)) {
                     mkdir(WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Wishlists' . DS . $wishlists->uuid . DS, 0777, true);
@@ -129,19 +131,21 @@ class WishesController extends AppController
                     if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
                         $wish->wish_img = $file->getClientFileName();
                     } else {
-                        $this->Flash->error(__('The file could not be uploaded. Please try again.'));
+                        $this->Flash->error(__('Kunne ikke upload billedet. Prøv venligst igen.'));
                     }
                 } else {
-                    $this->Flash->error(__('An error occurred. Please try again.'));
+                    $this->Flash->error(__('Der skete en fejl. Prøv venligst igen.'));        
                 }
+            }else{
+                $wish->wish_img = null;
             }
 
             if ($this->Wishes->save($wish)) {
-                $this->Flash->success(__('The wish has been saved.'));
+                $this->Flash->success(__('Ønske er blevet gemt'));
 
                 return $this->redirect(['controller' => 'Wishes', 'action' => 'view', $uuid]);
             }
-            $this->Flash->error(__('The wish could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke gemme ønsket. Prøv venligst igen.'));
         }
         $this->set(compact('wish'));
     }
@@ -163,9 +167,9 @@ class WishesController extends AppController
         ])->first();
 
         if ($this->Wishes->delete($wish)) {
-            $this->Flash->success(__('The wish has been deleted.'));
+            $this->Flash->success(__('Ønsket er bevet slettet.'));
         } else {
-            $this->Flash->error(__('The wish could not be deleted. Please, try again.'));
+            $this->Flash->error(__('Kunne ikke slette ønsket. Prøv venligst igen.'));
         }
 
         return $this->redirect(['controller' => 'Wishlists', 'action' => 'view', $wish->wishlist->uuid]);
@@ -176,15 +180,17 @@ class WishesController extends AppController
             'uuid' => $uuid,
         ])->firstOrFail();
 
-        $wish->is_reserved = 1;
-        $wish->reserved_by = $this->request->getAttribute('identity')->getIdentifier();
+        if($wish->is_reserved != 1){
+            $wish->is_reserved = 1;
+            $wish->reserved_by = $this->request->getAttribute('identity')->getIdentifier();
+            if ($this->Wishes->save($wish)) {
+                $this->Flash->success(__('Ønsket er blevet reserveret'));
 
-        if ($this->Wishes->save($wish)) {
-            $this->Flash->success(__('The wish has been saved.'));
-
-            return $this->redirect(['controller' => 'Shared', 'action' => 'wish', $wish->uuid]);
+                return $this->redirect(['controller' => 'Shared', 'action' => 'wish', $wish->uuid]);
+            }
+            $this->Flash->error(__('Ønsket kunne ikke reserveres. Prøv venligst igen.'));
         }
-        $this->Flash->error(__('The wish could not be saved. Please, try again.'));
+        $this->Flash->error(__('Ønsket er reserveret af en anden.'));
     }
 
     public function cancel($uuid = null){
@@ -198,11 +204,11 @@ class WishesController extends AppController
             $wish->is_reserved = 0;
             $wish->reserved_by = null;
             if ($this->Wishes->save($wish)) {
-                $this->Flash->success(__('The wish has been saved.'));
+                $this->Flash->success(__('Reservationen af ønsket, er blevet annulleret.'));
     
                 return $this->redirect(['controller' => 'Shared', 'action' => 'wish', $wish->uuid]);
             }
-            $this->Flash->error(__('The wish could not be saved. Please, try again.'));
+            $this->Flash->error(__('Kunne ike annullere reservationen. Prøv venligst igen.'));
         }
         
     }

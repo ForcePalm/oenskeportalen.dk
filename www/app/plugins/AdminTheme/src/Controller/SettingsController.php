@@ -57,7 +57,7 @@ class SettingsController extends AppController
 
             // Handle file upload
             $file = $this->request->getData('site_logo');
-            if ($file) {
+            if ($file->getClientFileName()) {
                 $targetPath = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Settings' . DS;
                 $targetFile = $targetPath . $file->getClientFileName();
                 if ($file->getError() === UPLOAD_ERR_OK) {
@@ -69,6 +69,8 @@ class SettingsController extends AppController
                 } else {
                     $this->Flash->error(__('An error occurred. Please try again.'));
                 }
+            }else{
+                $setting->site_logo = null;
             }
 
             if ($this->Settings->save($setting)) {
@@ -99,7 +101,7 @@ class SettingsController extends AppController
 
             // Handle file upload
             $file = $this->request->getData('site_logo');
-            if ($file) {
+            if ($file->getClientFileName()) {
                 $targetPath = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Settings' . DS;
                 $targetFile = $targetPath . $file->getClientFileName();
                 if ($file->getError() === UPLOAD_ERR_OK) {
@@ -111,6 +113,8 @@ class SettingsController extends AppController
                 } else {
                     $this->Flash->error(__('An error occurred. Please try again.'));
                 }
+            }else{
+                $setting->site_logo = null;
             }
             
             if ($this->Settings->save($setting)) {
