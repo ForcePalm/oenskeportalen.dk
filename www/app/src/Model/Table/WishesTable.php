@@ -82,12 +82,12 @@ class WishesTable extends Table
 
         $validator
             ->numeric('wish_price')
-            ->notEmptyString('wish_price');
+            ->allowEmptyString('wish_price');
 
         $validator
             ->scalar('wish_link')
             ->maxLength('wish_link', 255)
-            ->notEmptyString('wish_link');
+            ->allowEmptyString('wish_link');
 
         $validator
             ->scalar('wish_img')

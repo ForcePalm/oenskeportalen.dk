@@ -39,4 +39,10 @@ class AppView extends View
     {
         $this->loadHelper('Authentication.Identity');
     }
+
+    public function getSettings() 
+    {
+        $test = 'hej';
+        $this->set(compact('test'));
+    }
 }
