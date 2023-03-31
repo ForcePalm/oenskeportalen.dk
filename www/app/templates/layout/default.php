@@ -44,7 +44,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
     <header class="main-header">
         <nav class="top-nav">
             <div class="top-nav-title">
-                <a href="<?= $this->Url->build('/') ?>"><span class="home-link"><img src="<?= $this->Url->image('logo.webp') ?>" alt="Gave">Ønskeportalen</span></a>
+                <a href="<?= $this->Url->build('/') ?>"><span class="home-link"><img src="<?= $this->Url->image('logo.webp') ?>" width="45px" height="45px" alt="Gave">Ønskeportalen</span></a>
             </div>
 
             <div class="mobile-menu">
