@@ -28,6 +28,8 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
     </title>
     <?= $this->Html->meta('icon') ?>
 
+    <meta name="description" content="Opdel ønskelister nemt og undgå dobbeltgaver med Ønskeportalen. Opret din gratis ønskeliste i dag og find den helt rigtige gave.">
+
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="preload" as="font">
 
     <?= $this->Html->css(['reset', 'normalize.min', 'milligram.min','bootstrap/bootstrap.min', 'cake', 'home', 'core', 'toastr/toastr.min'], ['media' => 'screen']) ?>
@@ -55,7 +57,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
                 <div>
                     <a href="<?= $this->Url->build('/AboutUs') ?>">Om os</a>
                     <?php if ($this->request->getAttribute('identity')) { ?>
-                        <a href="<?= $this->Url->build(['controller' => 'Dashboard', 'action' => 'index']) ?>">Min side</a>
+                        <a href="<?= $this->Url->build(['controller' => 'Dashboard', 'action' => 'index']) ?>">Min side <?= $test ?></a>
                         <a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'edit', $this->request->getAttribute('identity')->get('uuid')]) ?>"><?= $this->request->getAttribute('identity')->get('name') ?></a>
                         <a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'logout']) ?>">Log af</a>
                     <?php }else{ ?>
