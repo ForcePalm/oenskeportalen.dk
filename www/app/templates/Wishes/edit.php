@@ -20,7 +20,8 @@
             'label' => 'Beskrivelse'
         ]) ?>
          <?= $this->Form->control('wish_price', [
-            'label' => 'Pris'
+            'label'   => 'Pris',
+            'pattern' => '\d*',
         ]) ?>
         <?= $this->Form->control('wish_link', [
             'label' => 'Link',

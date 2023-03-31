@@ -949,7 +949,8 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .toast {
     margin-top: 7px !important;
     font-size: 1.5rem;
-    min-width: 400px;
+    width: 100%;
+    opacity: 1;
 }
 
 
@@ -961,6 +962,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     }
     .top-nav-links a{
         opacity: 1 !important;
+    }
+
+    .toast {
+        width: 20%;
     }
   }
 

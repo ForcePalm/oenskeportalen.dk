@@ -17,24 +17,25 @@
     <fieldset>
         <?= $this->Form->control('wish_name', [
             'required' => true,
-            'label' => 'Ønske'
+            'label'    => 'Ønske'
         ]) ?>
         <?= $this->Form->control('wish_description', [
-            'type' => 'textarea',
+            'type'  => 'textarea',
             'label' => 'Beskrivelse',
             'value' => ''
         ]) ?>
          <?= $this->Form->control('wish_price', [
-            'label' => 'Pris',
-            'value' => ''
+            'label'   => 'Pris',
+            'pattern' => '\d*',
+            'value'   => ''
         ]) ?>
         <?= $this->Form->control('wish_link', [
             'label' => 'Link',
-            'type' => 'url'
+            'type'  => 'url'
         ]) ?>
         <?= $this->Form->control('wish_img', [
             'label' => 'Billede',
-            'type' => 'file'
+            'type'  => 'file'
         ]) ?>
 
         <div id="uploadImg" class="upload-img hidden"></div>
