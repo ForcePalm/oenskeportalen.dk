@@ -37,18 +37,9 @@
 .overlay a{
     min-width: 10px;
     font-size: 2em;
-    color: #111;
     display: block;
     border-radius: 20px;
-    background-color: #c69b4f;
-    border: 2px solid #c69b4f;
     text-align: center;
     padding: 8px 22px;
     font-weight: bold;
-    transition: all 0.4s ease-in-out;
-}
-
-.overlay a:hover{
-    background-color: #111;
-    color: #c69b4f;
 }

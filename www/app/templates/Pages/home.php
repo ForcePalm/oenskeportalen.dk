@@ -23,7 +23,7 @@ use Cake\Http\Exception\NotFoundException;
     <div class="banner">
         <div class="overlay">
             <h1>Velkommen til Ønskeportalen</h1>
-            <a href="<?= $this->Url->build('/dashboard') ?>">Opret Ønskeliste</a>
+            <a class="default-hover-effect" href="<?= $this->Url->build('/dashboard') ?>">Opret Ønskeliste</a>
         </div>
     </div>
 <?php
