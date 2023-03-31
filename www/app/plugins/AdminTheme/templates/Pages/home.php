@@ -38,10 +38,5 @@ $checkConnection = function (string $name) {
 
     return compact('connected', 'error');
 };
-if (!Configure::read('debug')) :
-    throw new NotFoundException(
-        'Please replace templates/Pages/home.php with your own version or re-enable debug mode.'
-    );
-endif;
 
 ?>

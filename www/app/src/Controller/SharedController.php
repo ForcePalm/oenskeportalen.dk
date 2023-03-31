@@ -58,7 +58,7 @@ class SharedController extends AppController
         }
 
         $shared = $this->Shared->find()->where([
-            'user_id' => $this->getCurrentUser()
+            'user_id' => $this->getCurrentUser(),
             'wishlist_id' => $share->id,
         ])->first();
 
