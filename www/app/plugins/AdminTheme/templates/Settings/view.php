@@ -17,7 +17,7 @@
         </tr>
         <tr>
             <th><?= __('Logo') ?></th>
-            <td><?= h($setting->site_logo) ?><img src="../../../img/<?= $setting->site_logo ?>" alt="logo"></td>
+            <td><?= h($setting->site_logo) ?><img src="../../../img/uploads/Settings/<?= $setting->site_logo ?>" alt="logo"></td>
         </tr>
         <tr>
             <th><?= __('Id') ?></th>

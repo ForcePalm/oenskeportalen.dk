@@ -19,7 +19,7 @@
     <?php 
         if($setting->site_logo){
             ?>
-                <img id="uploadImg" src="../../../img/<?= $setting->site_logo ?>" alt="logo">
+                <img id="uploadImg" src="../../../img/uploads/Settings/<?= $setting->site_logo ?>" alt="logo">
             <?php
         }else{
             ?>
