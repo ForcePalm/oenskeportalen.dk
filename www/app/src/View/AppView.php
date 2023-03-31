@@ -16,6 +16,7 @@ declare(strict_types=1);
 namespace App\View;
 
 use Cake\View\View;
+use PHPUnit\Framework\Test;
 
 /**
  * Application View
@@ -38,11 +39,5 @@ class AppView extends View
     public function initialize(): void
     {
         $this->loadHelper('Authentication.Identity');
-    }
-
-    public function getSettings() 
-    {
-        $test = 'hej';
-        $this->set(compact('test'));
     }
 }

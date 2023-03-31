@@ -1,4 +1,5 @@
 <?php
+use Cake\Core\Configure;
 /**
  * CakePHP(tm) : Rapid Development Framework (https://cakephp.org)
  * Copyright (c) Cake Software Foundation, Inc. (https://cakefoundation.org)
@@ -44,7 +45,9 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
     <!--Get controller name-->
     <?php $c_name = $this->request->getParam('controller'); ?>
     <header class="admin-header">
-        
+        <div >
+                <a href="<?= $this->Url->build('/admin') ?>"><span><?= ucfirst(Configure::read('name')) ?></span></a>
+        </div>
     </header>
     <div class="admin-wrapper">
         <div class="navigator-wrapper">

@@ -223,4 +223,9 @@ TypeFactory::map('time', StringType::class);
 
 
 // Load our plugin theme residing in the folder /plugins/Modern
-$this->addPlugin('OenskeportalTheme');
+//$this->addPlugin('OenskeportalTheme');
+
+
+Configure::read('name');
+Configure::read('logo');
+Configure::read('description');

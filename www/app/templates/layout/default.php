@@ -14,6 +14,9 @@
  * @var \App\View\AppView $this
  * 
  */
+
+use Cake\Core\Configure;
+
 $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
 
 ?>
@@ -27,8 +30,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
-    <meta name="description" content="Opdel ønskelister nemt og undgå dobbeltgaver med Ønskeportalen. Opret din gratis ønskeliste i dag og find den helt rigtige gave.">
+    <?= $this->Html->meta('description', Configure::read('description'))?>
 
     <link href="https://fonts.googleapis.com/css?family=Raleway:400,700" rel="preload" as="font">
 
@@ -43,10 +45,10 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
     <?= $this->fetch('vendor') ?>
 </head>
 <body>
-    <header class="main-header">
+    <header class="main-header default-background">
         <nav class="top-nav">
             <div class="top-nav-title">
-                <a href="<?= $this->Url->build('/') ?>"><span class="home-link"><img src="<?= $this->Url->image('logo.webp') ?>" width="45px" height="45px" alt="Gave">Ønskeportalen</span></a>
+                <a href="<?= $this->Url->build('/') ?>"><span class="home-link"><img src="<?= $this->Url->image('uploads/Settings/'. Configure::read('logo')) ?>" width="45px" height="45px" alt="Gave"><?= ucfirst(Configure::read('name')) ?></span></a>
             </div>
 
             <div class="mobile-menu">
@@ -75,7 +77,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
             <?= $this->fetch('content') ?>
         </div>
     </main>
-    <footer>
+    <footer class="default-background">
         <a href="<?= $this->Url->build('/') ?>"><span class="home-link">Ønskeportalen</span></a>
         <p>Copyright © <?=  date("Y") ?> Ønskeportalen</p>
         <ul>
