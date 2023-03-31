@@ -80,7 +80,8 @@ class AppController extends Controller
         $i = 20;
         $randomString = bin2hex(random_bytes($i));
 
-        $fileName = $randomString . '.' . $fileExtension;
+        //$fileName = $randomString . '.' . $fileExtension;
+        $fileName = $randomString . '.webp';
 
         $targetFile = $targetPath . $fileName;
         if ($file->getError() === UPLOAD_ERR_OK) {

@@ -60,21 +60,9 @@ class SettingsController extends AppController
             if ($file->getClientFileName()) {
                 $path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Settings';
                 $setting->site_logo = $this->upload($file, $path);
-                /*$targetPath = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Settings' . DS;
-                $targetFile = $targetPath . $file->getClientFileName();
-                if ($file->getError() === UPLOAD_ERR_OK) {
-                    if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
-                        $setting->site_logo = $file->getClientFileName();
-                    } else {
-                        $this->Flash->error(__('The file could not be uploaded. Please try again.'));
-                    }
-                } else {
-                    $this->Flash->error(__('An error occurred. Please try again.'));
-                }*/
             }else{
                 $setting->site_logo = null;
             }
-
             if ($this->Settings->save($setting)) {
                 $this->Flash->success(__('The wish has been saved.'));
 
@@ -105,18 +93,10 @@ class SettingsController extends AppController
             $file = $this->request->getData('site_logo');
             if ($file->getClientFileName()) {
                 $path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Settings';
+                if($setting->site_logo){
+                    unlink($path . DS . $setting->site_logo);
+                }
                 $setting->site_logo = $this->upload($file, $path);
-                /*$targetPath = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Settings' . DS;
-                $targetFile = $targetPath . $file->getClientFileName();
-                if ($file->getError() === UPLOAD_ERR_OK) {
-                    if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
-                        $setting->site_logo = $file->getClientFileName();
-                    } else {
-                        $this->Flash->error(__('The file could not be uploaded. Please try again.'));
-                    }
-                } else {
-                    $this->Flash->error(__('An error occurred. Please try again.'));
-                }*/
             }else{
                 $setting->site_logo = $setting->site_logo;
             }
@@ -143,6 +123,12 @@ class SettingsController extends AppController
         $this->request->allowMethod(['post', 'delete']);
         $setting = $this->Settings->get($id);
         if ($this->Settings->delete($setting)) {
+            // Folder path to be flushed
+            dd($path = WWW_ROOT . 'img' . DS . 'uploads' . DS . 'Settings' . DS . $setting->site_logo);
+
+            //Deletes the img
+            unlink($path);
+
             $this->Flash->success(__('The setting has been deleted.'));
         } else {
             $this->Flash->error(__('The setting could not be deleted. Please, try again.'));
