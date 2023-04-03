@@ -1,4 +1,5 @@
 <?php
+use Cake\I18n\Number;
 /**
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Wish $wish
@@ -15,7 +16,7 @@
         <div class="wish-img" style="background-image: url(../../img/<?= $wish->wish_img ? 'uploads/Wishlists/'. $wish->wishlist->uuid . '/' . $wish->wish_img : 'nopic.webp' ?>)"></div>
         <div class="wish-text">
             <p><?= h($wish->wish_description) ?></p>
-            <p><?= h($wish->wish_price) ?> kr</p>
+            <p><?= Number::currency($wish->wish_price, 'DKK') ?></p>
             <a class="wish-link" target="_BLANK" href="<?= h($wish->wish_link) ?>" >Link</a>
         </div>
     </div> 
