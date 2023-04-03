@@ -1,0 +1,176 @@
+/*Admin*/
+.admin-wrapper{
+    display: flex;
+    max-width: 100vw;
+    min-height: 100vh;
+}
+
+.admin-wrapper .navigator-wrapper{
+    position: fixed;
+    background-color: #1d2327;
+    width: 250px;
+    margin-top: 60px;
+}
+
+.admin-wrapper .content-wrapper{
+    background-color: #f0f0f1;
+    flex: 1;
+    margin-left: 250px;
+    margin-top: 60px;
+    padding: 1.5rem;
+}
+
+
+/*Admin header*/
+.admin-header{
+    background-color: #1d2327;
+    min-width: 100%;
+    min-height: 60px;
+    position: fixed;
+}
+
+
+/*Admin navigator*/
+.admin-nav ul{
+    margin: 0;
+    padding: 0;
+}
+
+.admin-nav ul li{
+    margin: 0;
+}
+
+.admin-nav ul li a{
+    color: #f0f0f1;
+    font-size: 14px;
+    transition: all 0.4s ease-in-out;
+    display: block;
+    padding: 12px 12px;
+}
+
+.admin-nav ul li a:hover{
+    color: #fff;
+    background-color: #2271b1;
+    padding-left: 18px;
+}
+
+.admin-active{
+    color: #fff;
+    background-color: #2271b1;
+    padding-left: 18px !important;
+}
+
+.admin-nav ul li a span{
+    width: 25px;
+}
+
+
+/*Admin content*/
+.admin-main .content{
+    background-color: #fff;
+}
+
+.admin-main .content h3{
+    color: #1d2327;
+    font-size: 2.6rem;
+}
+
+.admin-main .button,
+.admin-main button{
+    background-color: #2271b1;
+    color: #fff;
+    transition: all 0.4s ease-in-out;
+    border: 0.1rem solid #2271b1;
+}
+
+.admin-main .button:hover,
+.admin-main button:hover{
+    background-color: #15476f;
+}
+
+.admin-main td:first-child, 
+.admin-main th:first-child {
+    padding: 1.2rem 1.5rem;
+}
+
+.admin-main table th{
+    font-size: 1.6rem;
+    border-bottom: 1px solid #cecece;
+}
+
+.admin-main table td{
+    font-size: 1.4rem;
+    border-bottom: 1px solid #cecece;
+}
+
+.admin-main table td img{
+    width: 35px;
+}
+
+.admin-main table th a{
+    color: #2271b1;
+}
+
+.admin-main table td a{
+    color: #2271b1;
+}
+
+.admin-main .paginator{
+    margin-top: 1.5rem;
+}
+
+.admin-main .paginator p{
+    margin-bottom: 0;
+    font-size: 1.2rem;
+}
+
+.admin-main .paginator ul li a{
+    color: #2271b1;
+    font-size: 1.4rem;
+}
+
+.admin-main .related h4{
+    color: #000;
+}
+
+.admin-main label{
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+.admin-main label,
+.admin-main input,
+.admin-main textarea{
+    color: #000;
+}
+
+.admin-main input,
+.admin-main textarea{
+    font-size: 1.4rem;
+}
+
+.admin-main input[type="file"]{
+    border: 0.1rem solid #d1d1d1;
+    width: 100%;
+    border-radius: 0.4rem;
+    height: 3.8rem;
+    padding: 0.6rem 1rem;
+}
+
+.admin-main fieldset > div{
+    margin-bottom: 1.5rem;
+}
+
+.admin-main form button{
+    width: 100%;
+    font-size: 1.4rem;
+}
+
+.admin-main .text{
+    font-size: 1.4rem;
+}
+
+.admin-main form #uploadImg{
+    height: auto;
+    width: 250px;
+}

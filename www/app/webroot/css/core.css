@@ -546,6 +546,14 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     color: #c69b4f;
 }
 
+/*toastr*/
+.toast {
+    margin-top: 7px !important;
+    font-size: 1.5rem;
+    min-width: 90%;
+    opacity: 1 !important;
+}
+
 
 /*Admin*/
 .admin-wrapper{
@@ -724,14 +732,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 250px;
 }
 
-
-/*toastr*/
-.toast {
-    margin-top: 7px !important;
-    font-size: 1.5rem;
-    min-width: 90%;
-    opacity: 1 !important;
-}
 
 /*Templates*/
 .default-background{
