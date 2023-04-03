@@ -51,7 +51,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
                 <a href="<?= $this->Url->build('/') ?>"><span class="home-link"><img src="<?= $this->Url->image('uploads/Settings/'. Configure::read('logo')) ?>" width="45px" height="45px" alt="Gave"><?= ucfirst(Configure::read('name')) ?></span></a>
             </div>
 
-            <div class="mobile-menu">
+            <div class="mobile-menu default-text-color">
                 <span class="fa-solid fa-bars"></span>
             </div>
 
@@ -78,12 +78,12 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
         </div>
     </main>
     <footer class="default-background">
-        <a href="<?= $this->Url->build('/') ?>"><span class="home-link">Ønskeportalen</span></a>
+        <a class="default-text-color" href="<?= $this->Url->build('/') ?>"><span>Ønskeportalen</span></a>
         <p>Copyright © <?=  date("Y") ?> Ønskeportalen</p>
         <ul>
-            <li><a href="<?= $this->Url->build(['controller' => 'Faq', 'action' => 'index']) ?>">FAQ</a></li>
-            <li><a href="<?= $this->Url->build('/AboutUs') ?>">Om os</a></li>
-            <li><a href="mailto:noreply.oenskeportalen@gmail.com">Kontakt</a></li>
+            <li><a class="default-text-color" href="<?= $this->Url->build(['controller' => 'Faq', 'action' => 'index']) ?>">FAQ</a></li>
+            <li><a class="default-text-color" href="<?= $this->Url->build('/AboutUs') ?>">Om os</a></li>
+            <li><a class="default-text-color" href="mailto:noreply.oenskeportalen@gmail.com">Kontakt</a></li>
         </ul>
     </footer>
     

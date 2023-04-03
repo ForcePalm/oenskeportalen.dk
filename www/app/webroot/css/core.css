@@ -58,10 +58,6 @@ footer > a{
     font-weight: bold;
 }
 
-footer a{
-    color: #c69b4f;
-}
-
 footer a:hover{
     color: #c69b4f;
 }
@@ -99,7 +95,6 @@ footer ul li a{
 
 .accordion-wrapper .accordion-item{
     margin-bottom: 20px;
-    
 }
 
 .accordion-wrapper .accordion-button{
@@ -186,23 +181,18 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .about-wrapper > div > div > div{
-    background-color: #111;
     padding: 20px;
     border-radius: 20px;
-    border: 2px solid #c69b4f;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     min-height: 100%;
 }
 
 .about-wrapper h4{
     font-size: 2rem;
-    color: #c69b4f;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
 .about-wrapper p{
-    color: #c69b4f;
     font-size: 1.8rem;
     letter-spacing: 1.1px;
     line-height: 1.5em;
@@ -212,7 +202,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /*Mobile-mneu*/
 .mobile-menu{
-    color: #c69b4f;
     font-size: 3em;
     display: none;
 }
@@ -224,7 +213,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 /*Dashboard*/
 .dashboard-wrapper{
-    color: #c69b4f;
+    
 }
 
 .dashboard-wrapper > div{
@@ -233,26 +222,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .dashboard-wrapper h4{
     font-size: 1.8rem;
-}
-
-.dashboard-wrapper .button{
-    background-color: #c69b4f;
-    color: #000;
-    border: 2px solid #c69b4f;
-    font-size: 1.2rem;
-    display: block;
-    padding: 0px;
-    height: auto;
-    width: 160px;
-    border-radius: 20px;
-    transition: all 0.4s ease-in-out;
-    margin-left: auto;
-    font-weight: bold;
-}
-
-.dashboard-wrapper .button:hover{
-    background-color: #000;
-    color: #c69b4f;
 }
 
 .dashboard-wrapper .dashboard-header{
@@ -273,13 +242,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .dashboard-wrapper .dashboard-header .options-header a,
 .dashboard-wrapper .dashboard-header .options-header button{
-    background-color: #c69b4f;
-    color: #000;
     font-size: 1.3rem;
     margin-left: 10px;
     text-align: center;
     transition: all 0.4s ease-in-out;
-    border: 2px solid #c69b4f;
     min-width: 100px;
     padding: 8px 10px;
     display: flex;
@@ -287,12 +253,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     border-radius: 20px;
     font-weight: bold;
     justify-content: center;
-}
-
-.dashboard-wrapper .dashboard-header .options-header a:hover,
-.dashboard-wrapper .dashboard-header .options-header button:hover{
-    background-color: #000;
-    color: #c69b4f;
 }
 
 .dashboard-wrapper .dashboard-header .options-header a span,
@@ -354,7 +314,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #c69b4f;
     display: block;
     min-width: 100px;
-    color: #000;
+    color: #111;
     padding: 4px;
     text-align: center;
     border-radius: 0.4em;
@@ -381,7 +341,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .dashboard-wrapper .new-wishlist{
-    color: #c69b4f;
     display: flex;
     justify-content: center;
     padding: 20px;
@@ -419,8 +378,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .dashboard-wrapper > div > div > div div{
-    background-color: #111;
-    border: 2px solid #c69b4f;
     border-radius: 10px;
     min-height: 100%;
     transition: all 0.4s ease-in-out;
@@ -444,7 +401,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 10px;
     font-size: 1.6rem;
     text-align: center;
-    color: #000;
+    color: #111;
     border-top: 2px solid #c69b4f;
     font-weight: bold;
     transition: all 0.4s ease-in-out;
@@ -459,7 +416,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .dashboard-wrapper > div > div > div a p{
     padding: 10px;
-    color: #c69b4f;
     font-size: 1.6em;
     margin-bottom: 0;
     transition: all 0.4s ease-in-out;
@@ -489,7 +445,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    border: 2px solid #c69b4f;
     border-radius: 10px;
     padding-bottom: 1.5rem;
     display: none;
@@ -502,7 +457,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .share-popup .closeBtn span{
-    color: #c69b4f;
     font-size: 3rem;
     width: 40px;
     line-height: 40px;
@@ -510,7 +464,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .share-popup p{
-    color: #c69b4f;
     text-align: center;
     font-size: 1.8rem;
     font-weight: bold;
@@ -534,13 +487,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 .wish-links a, 
 .wish-links button{
-    background-color: #c69b4f;
-    color: #000;
     font-size: 1.3rem;
     margin-left: 10px;
     text-align: center;
     transition: all 0.4s ease-in-out;
-    border: 2px solid #c69b4f;
     min-width: 100px;
     padding: 8px 10px;
     display: flex;
@@ -550,16 +500,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     justify-content: center;
 }
 
-.wish-links button:hover{
-    background-color: #c69b4f;
-    border-color: #c69b4f;
-}
-
-.wish-links a:hover{
-    background-color: #000;
-    color: #c69b4f;
-}
-
 .wish-links a span{
     margin-left: 10px;
 }
@@ -567,15 +507,12 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 .wishes-wrapper{
     max-width: 800px;
     margin: 0 auto;
-    background-color: #111;
-    border: 2px solid #c69b4f;
     border-radius: 10px;
     transition: all 0.4s ease-in-out;
     padding-bottom: 0px;
 }
 
 .wishes-wrapper p{
-    color: #c69b4f;
     font-size: 1.6rem;
     padding: 0 1.5rem;
 }
@@ -599,13 +536,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     padding: 10px;
     font-size: 1.6rem;
     text-align: center;
-    color: #000;
+    color: #111;
     border-top: 2px solid #c69b4f;
     font-weight: bold;
     transition: all 0.4s ease-in-out;
 }
 .wishes-wrapper .wish-text .wish-link:hover{
-    background-color: #000;
+    background-color: #111;
     color: #c69b4f;
 }
 
@@ -787,9 +724,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     width: 250px;
 }
 
-.hidden{
-    display: none;
-}
 
 /*toastr*/
 .toast {
@@ -804,6 +738,10 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     background-color: #111;
 }
 
+.default-text-color{
+    color: #c69b4f;
+}
+
 .default-hover-effect{
     color: #111;
     background-color: #c69b4f;
@@ -812,12 +750,23 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 .default-hover-effect:hover{
-    background-color: #111;
     color: #c69b4f;
+    background-color: #111;
+    border-color: #c69b4f;
 }
 
 .default-border{
     border: 2px solid #c69b4f;
+}
+
+.hidden{
+    display: none;
+}
+
+.disabled{
+    background-color: #c69b4f !important; 
+    border-color: #c69b4f !important;
+    color: #111 !important;
 }
 
 
