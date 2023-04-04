@@ -29,6 +29,18 @@
     position: fixed;
 }
 
+.admin-header .logo{
+    line-height: 60px;
+    width: 250px;
+    text-align: center;
+    font-size: 2rem;
+}
+
+.admin-header .logo a{
+    display: block;
+    background-color: #000;
+}
+
 
 /*Admin navigator*/
 .admin-nav ul{

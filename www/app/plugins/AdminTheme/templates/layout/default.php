@@ -45,8 +45,8 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
     <!--Get controller name-->
     <?php $c_name = $this->request->getParam('controller'); ?>
     <header class="admin-header">
-        <div >
-                <a href="<?= $this->Url->build('/admin') ?>"><span><?= ucfirst(Configure::read('name')) ?></span></a>
+        <div class="logo">
+            <a href="<?= $this->Url->build('/admin') ?>"><span><?= ucfirst(Configure::read('name')) ?></span></a>
         </div>
     </header>
     <div class="admin-wrapper">
