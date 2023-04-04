@@ -31,7 +31,13 @@ use Cake\I18n\Number;
                             <p><?= Number::currency($wish->wish_price, 'DKK') ?></p>
                         </div>
                     </a>
-                    <a class="wish-link" target="_BLANK"href="<?= $wish->wish_link ?>">Link</a>
+                    <?php 
+                        if(!empty($wish->wish_link)){
+                            ?>
+                                <a class="wish-link" target="_BLANK" href="<?= $wish->wish_link ?>">Link</a>
+                            <?php
+                        }
+                    ?>
                 </div>
             </div>
             <?php endforeach; ?>

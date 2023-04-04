@@ -32,7 +32,13 @@ use Cake\I18n\Number;
         <div class="wish-text">
             <p><?= h($wish->wish_description) ?></p>
             <p><?= Number::currency($wish->wish_price, 'DKK') ?></p>
-            <a class="wish-link" target="_BLANK" href="<?= h($wish->wish_link) ?>" >Link</a>
+            <?php 
+                if(!empty($wish->wish_link)){
+                    ?>
+                        <a class="wish-link" target="_BLANK" href="<?= $wish->wish_link ?>">Link</a>
+                    <?php
+                }
+            ?>
         </div>
     </div> 
 </div>
