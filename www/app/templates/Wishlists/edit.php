@@ -9,9 +9,6 @@
  * @var \App\View\AppView $this
  * @var \App\Model\Entity\Wish $wish
  */
-
-use function PHPSTORM_META\type;
-
 ?>
 <div class="form-container default-text-color">
     <?= $this->Flash->render() ?>
@@ -20,12 +17,14 @@ use function PHPSTORM_META\type;
     <fieldset>
         <?= $this->Form->control('name', [
             'required' => true,
-            'label' => 'Ønskelistenavn'
+            'label' => 'Ønskelistenavn',
+            'value' => $wishlist->name,
             ]) ?>
         <?= $this->Form->control('description', [
             'type'     => 'textarea',
             'required' => true,
-            'label' => 'Beskrivelse'
+            'label' => 'Beskrivelse',
+            'value' => $wishlist->description,
             ]) ?>
     </fieldset>
     <?= $this->Form->submit(__('Gem')); ?>
