@@ -33,7 +33,7 @@
         ]) ?>
         <div id="uploadImg" class="upload-img" style="background-image: url(../../img/<?= $wish->wish_img ? 'uploads/Wishlists/'. $wish->wishlist->uuid . '/' . $wish->wish_img : 'nopic.webp' ?>)"></div>
     </fieldset>
-    <?= $this->Form->submit(__('Opret')); ?>
+    <?= $this->Form->submit(__('Opdater')); ?>
     <?= $this->Form->end() ?>
 </div>
 <!--append scripts-->

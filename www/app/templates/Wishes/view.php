@@ -8,7 +8,7 @@ use Cake\I18n\Number;
 <div class="content-container default-text-color">
     <h3><?= ucfirst(h($wish->wish_name)) ?></h3>
     <div class="wish-links">
-        <a class="default-hover-effect" href="javascript:history.back()">Tilbage<span class="fa-solid fa-arrow-left fa-lg"></span></a>
+        <a class="default-hover-effect" href="<?= $this->Url->build(['controller' => 'Wishlists', 'action' => 'view', $wish->wishlist->uuid]) ?>">Tilbage<span class="fa-solid fa-arrow-left fa-lg"></span></a>
         <a class="default-hover-effect" href="<?= $this->Url->build(['controller' => 'Wishes', 'action' => 'edit', $wish->uuid]) ?>">Rediger<span class="fa-solid fa-pen-to-square fa-lg"></span></a>
         <a class="default-hover-effect" href="<?= $this->Url->build(['controller' => 'Wishes', 'action' => 'delete', $wish->uuid]) ?>">Slet<span class="fa-solid fa-trash fa-lg"></span></a>
     </div>   
