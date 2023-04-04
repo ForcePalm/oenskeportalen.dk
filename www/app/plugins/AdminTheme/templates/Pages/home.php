@@ -40,3 +40,31 @@ $checkConnection = function (string $name) {
 };
 
 ?>
+<div class="content">
+    <h3>Oversigt</h3>
+</div>
+
+<div>
+    <p>Total besøgende: antal</p>
+    <p>Besøgende nu: antal</p>
+</div>
+
+<div>
+    <p>Bruger: antal</p>
+</div>
+
+<div>
+    <p>Ønskelister: antal</p>
+</div>
+
+<div>
+    <p>Delte Ønskelister: antal</p>
+</div>
+
+<div>
+    <p>Ønsker: antal</p>
+</div>
+
+<div>
+    <p>Alder chart</p>
+</div>
