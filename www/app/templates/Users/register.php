@@ -5,7 +5,7 @@
  */
 ?>
 
-<div class="form-container">
+<div class="form-container default-text-color">
     <h3>Tilmelding</h3>
     
     <?= $this->Form->create($user, [

@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container default-text-color">
     <?= $this->Flash->render() ?>
     <h3>Nulstill adgangkode</h3>
     <?= $this->Form->create() ?>

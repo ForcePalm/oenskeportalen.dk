@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\Wishlist $wishlist
  */
 ?>
-<div class="form-container">
+<div class="form-container default-text-color">
     <?= $this->Flash->render() ?>
     <h3>Ny Ønskeliste</h3>
     <?= $this->Form->create() ?>

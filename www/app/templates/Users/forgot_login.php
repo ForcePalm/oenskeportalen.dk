@@ -1,4 +1,4 @@
-<div class="form-container">
+<div class="form-container default-text-color">
     <?= $this->Flash->render() ?>
     <h3>Nulstil Adgangskode</h3>
     <p>Du modtager en mail med et link til at nulstille din adgangskode</p>

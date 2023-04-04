@@ -4,8 +4,8 @@
  * @var iterable<\App\Model\Entity\Faq> $faq
  */
 ?>
-<div class="accordion accordion-wrapper" id="faq">
-  <h3>FAQ</h3>
+<div class="accordion accordion-wrapper content-container" id="faq">
+  <h3 class="default-text-color">FAQ</h3>
   <?php foreach ($faq as $faq): ?>
     <div class="accordion-item">
       <h2 class="accordion-header" id="heading-<?= $faq->id ?>">

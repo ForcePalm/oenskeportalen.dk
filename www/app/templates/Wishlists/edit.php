@@ -13,7 +13,7 @@
 use function PHPSTORM_META\type;
 
 ?>
-<div class="form-container">
+<div class="form-container default-text-color">
     <?= $this->Flash->render() ?>
     <h3>Ændre Ønskeliste</h3>
     <?= $this->Form->create() ?>

@@ -4,7 +4,7 @@
  * @var \App\Model\Entity\User $user
  */
 ?>
-<div class="form-container">
+<div class="form-container default-text-color">
     <h3>Rediger bruger</h3>
     <?= $this->Form->create($user, [
     'class' => 'was-validated'
