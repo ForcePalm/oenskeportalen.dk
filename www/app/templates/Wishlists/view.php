@@ -5,7 +5,6 @@ use Cake\I18n\Number;
  * @var \App\Model\Entity\Wishlist $wishlist
  */
 ?>
-
 <div class="content-container dashboard-wrapper default-text-color">
     <h3><?= h($wishlist->name) ?></h3>
     <div>
@@ -68,6 +67,8 @@ use Cake\I18n\Number;
         <p>Tryk på knappen for at kopier dit delelink</p>
         <button value="<?= \Cake\Routing\Router::url(['controller' => 'Shared', 'action' => 'view', $wishlist->uuid], true) ?>" id="shareBtn">Kopier link</button>
     </div>
+
+    <div class="fb-share-button" data-href="https://xn--nskeportalen-ujb.dk/shared/view/8746a9651f648cf6babbf7c0fa73f89f8b3923a2" data-layout="" data-size=""><a target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fxn--nskeportalen-ujb.dk%2Fshared%2Fview%2F8746a9651f648cf6babbf7c0fa73f89f8b3923a2&amp;src=sdkpreparse" class="fb-xfbml-parse-ignore">Del</a></div>
 </div>
 <!--append scripts-->
 <?= $this->Html->script(['modules/copy_text']) ?>

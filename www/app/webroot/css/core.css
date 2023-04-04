@@ -34,8 +34,8 @@ body{
     margin-top: 80px;
 }
 
-/*Banner*/
 
+/*Banner*/
 .banner{
     background-image: url('../img/home-background.webp');
     background-repeat: no-repeat;
@@ -50,8 +50,8 @@ body{
     width: 100%;
 }
 
-/*Overlay*/
 
+/*Overlay*/
 .overlay{
     display: flex;
     flex-direction: column;
@@ -258,10 +258,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 /*Dashboard*/
-.dashboard-wrapper{
-    
-}
-
 .dashboard-wrapper > div{
     margin-bottom: 50px;
 }
@@ -396,10 +392,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 
 /*Shared*/
-.shared-wrapper{
-
-}
-
 .shared-wrapper .wish-img{
     display: flex;
     justify-content: center;
@@ -521,6 +513,13 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     font-size: 1.6rem;
 }
 
+.fb_iframe_widget span,
+iframe.fb_iframe_widget_lift,
+.fb_iframe_widget iframe {
+    min-width:80px !important;
+    height:20px !important;
+    position:relative;
+}
 
 /*Wishes*/
 .wish-links{
