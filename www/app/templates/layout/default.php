@@ -48,7 +48,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
     <meta property="og:url"                content="https://xn--nskeportalen-ujb.dk/" />
     <meta property="og:title"              content="Ønskeportalen" />
     <meta property="og:description"        content="Din online ønskeliste" />
-    <meta property="og:image"              content="https://xn--nskeportalen-ujb.dk/img/home-background.webp" />
+    <meta property="og:image"              content="https://xn--nskeportalen-ujb.dk/img/logo_200x200.webp" />
     <meta property="og:image:alt"          content="Logo" />
     <meta property="og:type"               content="website" />
 </head>
