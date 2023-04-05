@@ -53,9 +53,6 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
     <meta property="og:type"               content="website" />
 </head>
 <body>
-    <div id="fb-root"></div>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/da_DK/sdk.js#xfbml=1&version=v16.0" nonce="9SbFjkEV"></script>
-
     <header class="main-header default-background">
         <nav class="top-nav">
             <div class="top-nav-title">

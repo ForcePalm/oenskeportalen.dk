@@ -68,7 +68,7 @@
 
 .form-container input[type='submit']:hover,
 .form-container button:hover{
-    background-color: #1d1d1d;
+    background-color: #111;
     color: #c69b4f;
     border-color: #c69b4f;
 }
