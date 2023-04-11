@@ -14,7 +14,10 @@
     
     <fieldset>
         
-            <?= $this->Form->control('name', ['required' => true]); ?>
+            <?= $this->Form->control('name', [
+                'required' => true,
+                'label' => 'Navn',
+            ]); ?>
             <?= $this->Form->control('email', [
                 'required' => true
             ]); ?>
@@ -28,11 +31,12 @@
             ]); ?>
             <?= $this->Form->control('password', [
                 'type' => 'password',
-                'required' => true
+                'required' => true,
             ]); ?>
             <?= $this->Form->control('repeat_password', [
                 'type' => 'password',
-                'required' => true
+                'required' => true,
+                'label' => 'Gentag Password',
             ]); ?>
             
         
