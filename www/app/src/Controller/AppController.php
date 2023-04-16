@@ -91,10 +91,13 @@ class AppController extends Controller
         $i = 20;
         $randomString = bin2hex(random_bytes($i));
 
-        //$fileName = $randomString . '.' . $fileExtension;
+        //Sets the filename to the random generated string and adds the file extension
         $fileName = $randomString . '.webp';
 
+        //Sets targetfil to the targetpath and file
         $targetFile = $targetPath . $fileName;
+
+        //Checks for errors, if no errors it uploads else it spits out a error
         if ($file->getError() === UPLOAD_ERR_OK) {
             if(move_uploaded_file($file->getStream()->getMetadata('uri'), $targetFile)) {
                 return $fileName;
