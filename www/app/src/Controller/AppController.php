@@ -83,9 +83,6 @@ class AppController extends Controller
         }
         //Path to upload folder
         $targetPath = $path . DS;
-        
-        //Gets the file type
-        $fileExtension = trim(substr($file->getclientMediaType(), strpos($file->getclientMediaType(), '/') + 1));
 
         //Random string
         $i = 20;
