@@ -105,6 +105,7 @@ return static function (RouteBuilder $routes) {
         $builder->resources('AboutUs');
         $builder->resources('Shared');
         $builder->resources('Users');
+        $builder->resources('Faq');
         $builder->fallbacks();
     });
 };
