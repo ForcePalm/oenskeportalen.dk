@@ -28,6 +28,7 @@
         <?= $this->Form->control('password', [
             'value'    => '',
             'required' => false,
+            'autocomplete' => 'new-password',
         ]); ?>
     </fieldset>
     <?= $this->Form->button(__('Gem')) ?>

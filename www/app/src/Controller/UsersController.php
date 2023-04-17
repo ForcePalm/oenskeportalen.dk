@@ -262,7 +262,7 @@ public function forgotLogin()
             $mailer->setViewVars([
                 'name'  => $user->name,
                 'token' => $user->reset_request_token,
-                'link'  => 'http://xn--nskeportalen-ujb.dk:8383/users/reset_password/'.$token,
+                'link'  => 'http://xn--nskeportalen-ujb.dk/users/reset_password/'.$token,
             ]);
             $mailer->setTransport('gmail');
             

@@ -21,7 +21,7 @@
 </head>
 <body>
     <p>Kære <?= ucwords($name); ?>,</p>
-    <p>Vi vil gerne byde dig velkommen til <a href="http://ønskeportalen.dk:8383/">Ønskeportalen.dk</a>, og takke dig for din tilmelding til vores platform. Ønskeportalen er et online fællesskab, hvor du kan dele dine ønsker med venner og familie.</p>
+    <p>Vi vil gerne byde dig velkommen til <a href="http://ønskeportalen.dk/">Ønskeportalen.dk</a>, og takke dig for din tilmelding til vores platform. Ønskeportalen er et online fællesskab, hvor du kan dele dine ønsker med venner og familie.</p>
     <p>Vi er glade for at have dig ombord og håber, at du vil finde vores portal både sjov og nyttig. Som en del af vores fællesskab vil du kunne:</p>
     <ul>
         <li>Skab dine egne personlige ønskelister og del dem med familie og venner på vores topmoderne online platform.</li>
