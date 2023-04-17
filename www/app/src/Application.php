@@ -32,6 +32,7 @@ use Authentication\AuthenticationServiceInterface;
 use Authentication\AuthenticationServiceProviderInterface;
 use Authentication\Middleware\AuthenticationMiddleware;
 use Cake\Routing\Router;
+use Laminas\Diactoros\ServerRequest;
 use Psr\Http\Message\ServerRequestInterface;
 use AdminTheme\AdminTheme;
 
@@ -140,6 +141,16 @@ implements AuthenticationServiceProviderInterface
             'password' => 'password',
         ]
     ]);
+
+    $path = $request->getPath();
+
+    if (strpos($path, '/api') === 0 ) {
+        // Accept API tokens only
+        $authenticationService->loadAuthenticator('Authentication.Token');
+        $authenticationService->loadIdentifier('Authentication.Token');
+
+        return $authenticationService;
+    }
 
     // Load the authenticators, you want session first
     $authenticationService->loadAuthenticator('Authentication.Session');

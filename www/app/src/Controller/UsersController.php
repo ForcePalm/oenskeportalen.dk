@@ -4,7 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Mailer\Mailer;
-
+use Cake\View\JsonView;
 /**
  * Users Controller
  *
@@ -22,7 +22,10 @@ class UsersController extends AppController
     $this->Authentication->addUnauthenticatedActions(['login', 'register', 'forgotLogin', 'resetPassword']);
 
     }
-
+    public function viewClasses(): array
+    {
+        return [JsonView::class];
+    }
     /**
      * Index method
      *
@@ -32,6 +35,7 @@ class UsersController extends AppController
     {
         $users = $this->paginate($this->Users);
         $this->set(compact('users'));
+        $this->viewBuilder()->setOption('serialize', ['users']);
     }
 
     /**
@@ -221,6 +225,7 @@ public function login()
             debug($result && $result->isValid());
         $this->Flash->error(__('Forkert brugernavn eller kode.'));
     }
+    $this->viewBuilder()->setOption('serialize', ['result']);
 }
 
 public function logout()

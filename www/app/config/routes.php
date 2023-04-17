@@ -51,6 +51,7 @@ return static function (RouteBuilder $routes) {
          * to use (in this case, templates/Pages/home.php)...
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
+      
 
         /*$builder->connect('/',  array('plugin' => 'OenskeportalTheme', 'controller' => 'Pages', 'action' => 'display', 'home'));
         $builder->scope('/users', function (RouteBuilder $builder) {
@@ -99,5 +100,11 @@ return static function (RouteBuilder $routes) {
      * });
      * ```
      */
-     
+    $routes->scope('/api', function (RouteBuilder $builder) {
+        $builder->setExtensions(['json']);
+        $builder->resources('AboutUs');
+        $builder->resources('Shared');
+        $builder->resources('Users');
+        $builder->fallbacks();
+    });
 };
