@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\View\JsonView;
 
 /**
  * AboutUs Controller
@@ -20,6 +21,10 @@ class AboutUsController extends AppController
     $this->Authentication->addUnauthenticatedActions(['index']);
 
     }
+    public function viewClasses(): array
+    {
+        return [JsonView::class];
+    }
     /**
      * Index method
      *
@@ -30,5 +35,8 @@ class AboutUsController extends AppController
         $aboutUs = $this->paginate($this->AboutUs);
 
         $this->set(compact('aboutUs'));
+
+        $this->viewBuilder()->setOption('serialize', ['aboutUs']);
+
     }
 }

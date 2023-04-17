@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Model\Entity\Shared;
+use Cake\View\JsonView;
 
 /**
  * Shared Controller
@@ -13,6 +14,10 @@ use App\Model\Entity\Shared;
  */
 class SharedController extends AppController
 {
+    public function viewClasses(): array
+    {
+        return [JsonView::class];
+    }
     /**
      * Index method
      *
@@ -34,6 +39,7 @@ class SharedController extends AppController
             ])->all();
 
         $this->set(compact('shared'));
+        $this->viewBuilder()->setOption('serialize', ['shared']);
     }
 
     /**
