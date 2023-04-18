@@ -69,7 +69,6 @@ return static function (RouteBuilder $routes) {
         $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
         $builder->connect('/admin/*', array('plugin' => 'AdminTheme', 'controller' => 'Pages', 'action' => 'display', 'home'));
-        
         /*
          * Connect catchall routes for all controllers.
          *
@@ -101,27 +100,17 @@ return static function (RouteBuilder $routes) {
      * });
      * ```
      */
-    /*$routes->prefix('Api', function (RouteBuilder $routes) {
+    $routes->prefix('Api', function (RouteBuilder $routes) {
         $routes->setExtensions(['json']);
         $routes->resources('AboutUs');
         $routes->resources('Faq');
         $routes->fallbacks(DashedRoute::class);
-    });*/
-    $routes->prefix('Api', function (RouteBuilder $routes) {
-        $routes->fallbacks(DashedRoute::class);
     });
-
-    $routes->scope('/api', function (RouteBuilder $builder) {
-        $builder->setRouteClass(DashedRoute::class);
+    /*$routes->scope('/api', function (RouteBuilder $builder) {
         $builder->setExtensions(['json']);
-        $builder->resources('AboutUs', [
-            'prefix' => 'Api',
-        ]);
-        $builder->resources('Faq', [
-            'prefix' => 'Api',
-        ]);
-        $builder->resources('Users', [
-            'prefix' => 'Api',
-        ]);
-    });
+        $builder->resources('AboutUs');
+        $builder->resources('Faq');
+        $builder->post('/users/login', ['controller' => 'Users', 'action' => 'login', 'prefix' => 'Api']);
+        $builder->fallbacks();
+    });*/
 };

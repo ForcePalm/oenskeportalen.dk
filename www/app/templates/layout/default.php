@@ -89,7 +89,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
         <a class="default-text-color" href="<?= $this->Url->build('/') ?>"><span>Ønskeportalen</span></a>
         <p>Copyright © <?=  date("Y") ?> Ønskeportalen</p>
         <ul>
-            <li><a class="default-text-color" href="<?= $this->Url->build('/faq') ?>">FAQ</a></li>
+            <li><a class="default-text-color" href="<?= $this->Url->build(['controller' => 'Faq', 'action' => 'index']) ?>">FAQ</a></li>
             <li><a class="default-text-color" href="<?= $this->Url->build('/AboutUs') ?>">Om os</a></li>
             <li><a class="default-text-color" href="mailto:noreply.oenskeportalen@gmail.com">Kontakt</a></li>
         </ul>

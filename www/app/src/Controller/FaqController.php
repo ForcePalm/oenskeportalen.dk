@@ -2,6 +2,7 @@
 declare(strict_types=1);
 
 namespace App\Controller;
+use Cake\View\JsonView;
 
 /**
  * Faq Controller
@@ -21,7 +22,10 @@ class FaqController extends AppController
     $this->Authentication->addUnauthenticatedActions(['index']);
 
     }
-    
+    public function viewClasses(): array
+    {
+        return [JsonView::class];
+    }
     /**
      * Index method
      *
@@ -34,5 +38,6 @@ class FaqController extends AppController
 
         $this->set(compact('faq'));
         
+        $this->viewBuilder()->setOption('serialize', ['faq']);
     }
 }

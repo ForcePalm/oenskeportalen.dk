@@ -4,6 +4,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use Cake\Mailer\Mailer;
+use Cake\View\JsonView;
 /**
  * Users Controller
  *
@@ -20,6 +21,21 @@ class UsersController extends AppController
     // the infinite redirect loop issue
     $this->Authentication->addUnauthenticatedActions(['login', 'register', 'forgotLogin', 'resetPassword']);
 
+    }
+    public function viewClasses(): array
+    {
+        return [JsonView::class];
+    }
+    /**
+     * Index method
+     *
+     * @return \Cake\Http\Response|null|void Renders view
+     */
+    public function index()
+    {
+        $users = $this->paginate($this->Users);
+        $this->set(compact('users'));
+        $this->viewBuilder()->setOption('serialize', ['users']);
     }
 
     /**
@@ -196,7 +212,6 @@ public function login()
     $result = $this->Authentication->getResult();
     // regardless of POST or GET, redirect if user is logged in
     if ($result && $result->isValid()) {
-
         // redirect to /articles after login success
         $redirect = $this->request->getQuery('redirect', [
             'controller' => 'Dashboard',
@@ -210,6 +225,7 @@ public function login()
             debug($result && $result->isValid());
         $this->Flash->error(__('Forkert brugernavn eller kode.'));
     }
+    $this->viewBuilder()->setOption('serialize', ['result']);
 }
 
 public function logout()
@@ -284,7 +300,7 @@ public function resetPassword($reset_token)
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Adgangskode nulstillet.'));
     
-                return $this->redirect(['action' => 'login']);
+                return $this->redirect(['action' => 'index']);
             }
             $this->Flash->error(__('Kunne ikke nulstille adgangskoden. Prøv venligst igen.'));
         }
