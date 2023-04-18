@@ -69,7 +69,7 @@ implements AuthenticationServiceProviderInterface
          * Debug Kit should not be installed on a production system
          */
         if (Configure::read('debug')) {
-            Configure::write('DebugKit.forceEnable', Configure::read('debug'));
+            //Configure::write('DebugKit.forceEnable', Configure::read('debug'));
             $this->addPlugin('DebugKit');
         }
 
