@@ -127,7 +127,45 @@ implements AuthenticationServiceProviderInterface
         return $middlewareQueue;
     }
 
-    public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
+    public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface 
+    {
+        $service = new AuthenticationService([
+            'unauthenticatedRedirect' => Router::url('/users/login'),
+            'queryParam' => 'redirect',
+        ]);
+        $service->loadIdentifier('Authentication.Password', [
+            'fields' => [
+                'username' => 'email',
+                'password' => 'password',
+            ]
+        ]);
+        // Configuration common to both the API and web goes here.
+    
+        if ($request->getParam('prefix') == 'Api') {
+            $service->loadAuthenticator('Authentication.Token');
+            $service->loadAuthenticator('Authentication.Token', [
+                'queryParam' => 'token',
+                'header' => 'Authorization',
+                'tokenPrefix' => 'Token'
+            ]);
+        } else {
+            // Load the authenticators, you want session first
+            $service->loadAuthenticator('Authentication.Session');
+            // Configure form data check to pick email and password
+            $service->loadAuthenticator('Authentication.Form', [
+                'fields' => [
+                    'username' => 'email',
+                    'password' => 'password',
+                ],
+                'loginUrl' => [
+                    Router::url('/users/login'),
+                ],
+            ]);
+        }
+        return $service;
+    }
+
+    /*public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface
     {
     $authenticationService = new AuthenticationService([
         'unauthenticatedRedirect' => Router::url('/users/login'),
@@ -147,7 +185,11 @@ implements AuthenticationServiceProviderInterface
     if (strpos($path, '/api') === 0 ) {
         // Accept API tokens only
         $authenticationService->loadAuthenticator('Authentication.Token');
-        $authenticationService->loadIdentifier('Authentication.Token');
+        $authenticationService->loadAuthenticator('Authentication.Token', [
+            'queryParam' => 'token',
+            'header' => 'Authorization',
+            'tokenPrefix' => 'Token'
+        ]);
 
         return $authenticationService;
     }
@@ -166,7 +208,7 @@ implements AuthenticationServiceProviderInterface
     ]);
 
     return $authenticationService;
-    }
+    }*/
 
     /**
      * Register application container services.
