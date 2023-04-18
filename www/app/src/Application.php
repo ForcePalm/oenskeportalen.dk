@@ -80,6 +80,7 @@ implements AuthenticationServiceProviderInterface
         $this->addPlugin('OenskeportalTheme', ['routes' => true]);
 
         $this->addPlugin('Josegonzalez/Upload');
+        $this->addPlugin('MixerApi');
     }
 
     /**
@@ -113,16 +114,26 @@ implements AuthenticationServiceProviderInterface
             // https://book.cakephp.org/4/en/controllers/middleware.html#body-parser-middleware
             ->add(new BodyParserMiddleware())
 
-            ->add(new AuthenticationMiddleware($this))
-
-            //->add(new AuthorizationMiddleware($this))
+            ->add(new AuthenticationMiddleware($this));
 
 
             // Cross Site Request Forgery (CSRF) Protection Middleware
             // https://book.cakephp.org/4/en/security/csrf.html#cross-site-request-forgery-csrf-middleware
-            ->add(new CsrfProtectionMiddleware([
+            $csrf = new CsrfProtectionMiddleware();
+
+            // Token check will be skipped when callback returns `true`.
+            $csrf->skipCheckCallback(function ($request) {
+                // Skip token check for API URLs.
+                if ($request->getParam('prefix') === 'Api') {
+                    return true;
+                }
+            });
+        
+            // Ensure routing middleware is added to the queue before CSRF protection middleware.
+            $middlewareQueue->add($csrf);
+            /*->add(new CsrfProtectionMiddleware([
                 'httponly' => true,
-            ]));
+            ]));*/
 
         return $middlewareQueue;
     }
@@ -142,11 +153,11 @@ implements AuthenticationServiceProviderInterface
         // Configuration common to both the API and web goes here.
     
         if ($request->getParam('prefix') == 'Api') {
-            $service->loadAuthenticator('Authentication.Token');
-            $service->loadAuthenticator('Authentication.Token', [
-                'queryParam' => 'token',
-                'header' => 'Authorization',
-                'tokenPrefix' => 'Token'
+            $service->loadIdentifier('Authentication.JwtSubject');
+            $service->loadAuthenticator('Authentication.Jwt', [
+                'secretKey' => file_get_contents(CONFIG . '/jwt.pem'),
+                'algorithm' => 'RS256',
+                'returnPayload' => false
             ]);
         } else {
             // Load the authenticators, you want session first
@@ -163,6 +174,7 @@ implements AuthenticationServiceProviderInterface
             ]);
         }
         return $service;
+        
     }
 
     /*public function getAuthenticationService(ServerRequestInterface $request): AuthenticationServiceInterface

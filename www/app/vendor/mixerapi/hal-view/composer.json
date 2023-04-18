@@ -1,0 +1,30 @@
+{
+    "name": "mixerapi/hal-view",
+    "description": "A Hypertext Application Language (HAL+JSON) view for CakePHP.",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "keywords": ["cakephp","cakephp view","cakephp hal","cakephp hal json","hypertext applicatoin language"],
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "cakephp/cakephp": "~4.0",
+        "mixerapi/core": "^0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MixerApi\\HalView\\": "src/"
+        }
+    },
+    "support": {
+        "issues": "https://github.com/mixerapi/mixerapi-dev/issues",
+        "source": "https://github.com/mixerapi/hal-view"
+    },
+    "authors": [
+        {
+            "name": "MixerApi",
+            "role": "Organization"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}

@@ -1,0 +1,29 @@
+{
+    "name": "mixerapi/json-ld-view",
+    "description": "A JSON-LD view for CakePHP",
+    "type": "cakephp-plugin",
+    "license": "MIT",
+    "keywords": ["cakephp", "json-ld", "jsonld", "cakephp json-ld", "cakephp jsonld"],
+    "require": {
+        "php": ">=7.2",
+        "ext-json": "*",
+        "cakephp/cakephp": "~4.0",
+        "mixerapi/core": "^0.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "MixerApi\\JsonLdView\\": "src/"
+        }
+    },
+    "support": {
+        "source": "https://github.com/mixerapi/json-ld-view"
+    },
+    "authors": [
+        {
+            "name": "MixerApi",
+            "role": "Organization"
+        }
+    ],
+    "prefer-stable": true,
+    "minimum-stability": "dev"
+}
