@@ -37,6 +37,7 @@ class FaqController extends AppController
         $faq = $this->paginate($this->Faq);
 
         $this->set(compact('faq'));
+        
         $this->viewBuilder()->setOption('serialize', ['faq']);
     }
 }
