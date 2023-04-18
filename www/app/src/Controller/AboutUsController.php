@@ -37,6 +37,7 @@ class AboutUsController extends AppController
         $this->set(compact('aboutUs'));
 
         $this->viewBuilder()->setOption('serialize', ['aboutUs']);
+        
 
     }
 }
