@@ -67,7 +67,7 @@ $cakeDescription = 'Ønskeportalen: Din online ønskeliste';
                 <div>
                     <a href="<?= $this->Url->build('/AboutUs') ?>">Om os</a>
                     <?php if ($this->request->getAttribute('identity')) { ?>
-                        <a href="<?= $this->Url->build(['controller' => 'Dashboard', 'action' => 'index']) ?>">Min side <?= $test ?></a>
+                        <a href="<?= $this->Url->build(['controller' => 'Dashboard', 'action' => 'index']) ?>">Min side </a>
                         <a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'edit', $this->request->getAttribute('identity')->get('uuid')]) ?>"><?= $this->request->getAttribute('identity')->get('name') ?></a>
                         <a href="<?= $this->Url->build(['controller' => 'users', 'action' => 'logout']) ?>">Log af</a>
                     <?php }else{ ?>
