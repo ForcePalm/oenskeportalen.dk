@@ -44,27 +44,32 @@ $checkConnection = function (string $name) {
     <h3>Oversigt</h3>
 </div>
 
-<div>
-    <p>Total besøgende: antal</p>
-    <p>Besøgende nu: antal</p>
-</div>
+<div class="analytics-wrapper">
+    <div>
+        <p>Total besøgende: 20</p>
+    </div>
 
-<div>
-    <p>Bruger: antal</p>
-</div>
+    <div>
+        <p>Besøgende nu: 2</p>
+    </div>
 
-<div>
-    <p>Ønskelister: antal</p>
-</div>
+    <div>
+        <p>Brugere: 15</p>
+    </div>
 
-<div>
-    <p>Delte Ønskelister: antal</p>
-</div>
+    <div>
+        <p>Ønskelister: 12</p>
+    </div>
 
-<div>
-    <p>Ønsker: antal</p>
-</div>
+    <div>
+        <p>Delte Ønskelister: 4</p>
+    </div>
 
-<div>
-    <p>Alder chart</p>
+    <div>
+        <p>Ønsker: 100</p>
+    </div>
+
+    <div>
+        <p>Alder chart</p>
+    </div>
 </div>
