@@ -20,6 +20,12 @@
     border-color: #c69b4f;
 }
 
+.default-hover-effect:focus{
+    color: #c69b4f;
+    background-color: #111;
+    border-color: #c69b4f;
+}
+
 .default-border{
     border: 2px solid #c69b4f;
 }
