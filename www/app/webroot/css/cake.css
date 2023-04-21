@@ -20,7 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 a {
-    color:#2f85ae;
+    color:#c69b4f;
     -webkit-transition:all 0.2s linear;
     transition:all 0.2s linear;
 }
@@ -28,7 +28,7 @@ a {
 a:hover,
 a:focus,
 a:active  {
-    color:#2a6496;
+    color:#c69b4f;
     -webkit-transition:all 0.2s easeout;
     transition:all 0.2s ease-out;
 }
