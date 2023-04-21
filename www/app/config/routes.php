@@ -100,17 +100,16 @@ return static function (RouteBuilder $routes) {
      * });
      * ```
      */
-    $routes->prefix('Api', function (RouteBuilder $routes) {
+    /*$routes->prefix('Api', function (RouteBuilder $routes) {
         $routes->setExtensions(['json']);
         $routes->resources('AboutUs');
         $routes->resources('Faq');
         $routes->fallbacks(DashedRoute::class);
-    });
-    /*$routes->scope('/api', function (RouteBuilder $builder) {
+    });*/
+    $routes->scope('/api', function (RouteBuilder $builder) {
         $builder->setExtensions(['json']);
         $builder->resources('AboutUs');
         $builder->resources('Faq');
-        $builder->post('/users/login', ['controller' => 'Users', 'action' => 'login', 'prefix' => 'Api']);
         $builder->fallbacks();
-    });*/
+    });
 };
