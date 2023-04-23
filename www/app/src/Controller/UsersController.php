@@ -300,7 +300,7 @@ public function resetPassword($reset_token)
             if ($this->Users->save($user)) {
                 $this->Flash->success(__('Adgangskode nulstillet.'));
     
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'login']);
             }
             $this->Flash->error(__('Kunne ikke nulstille adgangskoden. Prøv venligst igen.'));
         }
