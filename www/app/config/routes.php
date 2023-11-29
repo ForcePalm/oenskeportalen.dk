@@ -51,21 +51,10 @@ return static function (RouteBuilder $routes) {
          * to use (in this case, templates/Pages/home.php)...
          */
         $builder->connect('/', ['controller' => 'Pages', 'action' => 'display', 'home']);
-      
-
-        /*$builder->connect('/',  array('plugin' => 'OenskeportalTheme', 'controller' => 'Pages', 'action' => 'display', 'home'));
-        $builder->scope('/users', function (RouteBuilder $builder) {
-            $builder->connect('/login', array('controller' => 'Users', 'action' => 'login'));
-            $builder->connect('/register', array('controller' => 'Users', 'action' => 'register'));
-            $builder->connect('/logout', array('controller' => 'Users', 'action' => 'logout'));
-            $builder->connect('/edit', array('controller' => 'Users', 'action' => 'edit'));
-            $builder->connect('/delete', array('controller' => 'Users', 'action' => 'delete'));
-        });*/
 
         /*
          * ...and connect the rest of 'Pages' controller's URLs.
          */
-        //$builder->connect('/pages/*', array('plugin' => 'OenskeportalTheme', 'controller' => 'Pages', 'action' => 'display'));
         $builder->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
         $builder->connect('/admin/*', array('plugin' => 'AdminTheme', 'controller' => 'Pages', 'action' => 'display', 'home'));

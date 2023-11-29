@@ -84,13 +84,13 @@ return [
             'url' => env('EMAIL_TRANSPORT_DEFAULT_URL', null),
         ],
         // Sample SMTP configuration
-    'gmail' => [
-        'host' => 'smtp.gmail.com',
-        'port' => 587,
-        'username' => 'noreply.oenskeportalen@gmail.com',
-        'password' => 'mzxuumfbtguzvxdo',
-        'className' => 'Smtp',
-        'tls' => true
-    ]
+        'gmail' => [
+            'host' => 'smtp.gmail.com',
+            'port' => 587,
+            'username' => 'noreply.oenskeportalen@gmail.com',
+            'password' => 'mzxuumfbtguzvxdo',
+            'className' => 'Smtp',
+            'tls' => true
+        ]
     ],
 ];

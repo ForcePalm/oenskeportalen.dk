@@ -1,5 +1,4 @@
 <div class="form-container default-text-color">
-    <?= $this->Flash->render() ?>
     <h3>Login</h3>
     <?= $this->Form->create() ?>
     <fieldset>
